@@ -15,6 +15,10 @@ const App = () => {
           <PrivateRoute exact path="/" component={Dashboard} />
           <PrivateRoute exact path="/contracts" component={Empty} />
           <PrivateRoute exact path="/rates" component={Empty} />
+          <PrivateRoute exact path="/menu1" component={Empty} />
+          <PrivateRoute exact path="/menu2" component={Empty} />
+          <PrivateRoute exact path="/menu3" component={Empty} />
+
           <Redirect to="/" />
         </Switch>
       </Suspense>

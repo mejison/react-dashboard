@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap');
-@import './variable.scss';
-@import '~bootstrap/scss/bootstrap.scss';
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap");
+@import "./variable.scss";
+@import "~bootstrap/scss/bootstrap.scss";
 
 body {
   color: $body-color;
@@ -42,7 +42,6 @@ body {
 }
 
 .private-layout {
-  
 }
 
 .page-content {
@@ -56,14 +55,23 @@ body {
 
 .header {
   height: $header-height;
-  background-color: $dark-blue;
-  color: $white;
+  background-color: $white;
+  color: $grey;
   font-size: $header-font-size;
-  .divider {
-    width: 1px;
-    background: #FFFFFF;
-    height: 100%;
-    opacity: 0.2;
+  border-bottom: 1px solid #eaf1f9;
+  // .divider {
+  //   width: 1px;
+  //   background: #ffffff;
+  //   height: 100%;
+  //   opacity: 0.2;
+  // }
+
+  &__nav {
+    display: flex;
+  }
+
+  &__item {
+    margin: 0 30px;
   }
 }
 
@@ -134,7 +142,7 @@ body {
 }
 
 .card {
-  box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.08);
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.08);
   .card-title {
     font-weight: $font-weight-bold;
     padding: 24px 20px;
@@ -142,7 +150,6 @@ body {
     color: $headline-color;
   }
   .card-body {
-    
   }
   .card-footer {
     background-color: $light;
@@ -253,12 +260,11 @@ body {
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   background-size: cover;
   background-position: center;
   display: inline-block;
 }
-
