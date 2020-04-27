@@ -8,6 +8,7 @@ import DatePicker from "../components/inputs/DatePicker";
 import Badge from "../components/Badge";
 import numeral from "numeral";
 import Pagination from "../components/Pagination";
+import EmptyRules from "../components/EmptyRules";
 // import RuningString from '../components/RuningString'
 
 const customer = {
@@ -290,6 +291,40 @@ const Dashboard = () => {
   return (
     <div className="h-100 container-fluid pt-3">
       <div className="row">
+        <div className="col-12 col-sm-6 col-lg-9 mb-3">
+          <div className="row mb-3">
+            <div className="col-12 col-lg-4 ">
+              <Card>
+                <div>Total revenue</div>
+              </Card>
+            </div>
+            <div className="col-12 col-lg-4 ">
+              <Card>
+                <div>Total Tickets</div>
+              </Card>
+            </div>
+
+            <div className="col-12 col-lg-4 ">
+              <Card>
+                <div>Overal ATP</div>
+              </Card>
+            </div>
+          </div>
+          <div className="col-12 col-lg-3 mx-3"></div>
+          <Card>
+            <div>MAIN CONTENT</div>
+          </Card>
+        </div>
+
+        {/* Empty_Rules */}
+        <div className="col-12 col-sm-6 col-lg-3 mb-3">
+          <Card>
+            <EmptyRules />
+          </Card>
+        </div>
+        {/* /EmptyRules */}
+      </div>
+      <div className="row">
         <div className="col-12 col-sm-6 col-lg-4 mb-3">
           <Card>
             <h4 className="card-title">Customer Info</h4>
@@ -332,6 +367,7 @@ const Dashboard = () => {
             </div>
           </Card>
         </div>
+
         <div className="col-12 col-sm-6 col-lg-8 mb-3">
           <Card className="h-100">
             <h4 className="card-title">Customer Accounts</h4>
