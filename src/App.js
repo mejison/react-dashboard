@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Empty = lazy(() => import("./pages/EmptyPage"));
 
 const App = () => {
+  console.log('123')
   return (
     <div className="App">
       <Suspense fallback={<PrivateLayout />}>
