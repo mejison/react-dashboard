@@ -9,7 +9,35 @@ import Badge from "../components/Badge";
 import numeral from "numeral";
 import Pagination from "../components/Pagination";
 import EmptyRules from "../components/EmptyRules";
+import CardRule from '../components/CardRule'
 // import RuningString from '../components/RuningString'
+
+
+const array = [
+  {
+    type: 'currency',
+    total: 9960,
+    title: '',
+    before: '',
+    percent: 12,
+    success: true,
+    
+  }, {
+    type: 'count',
+    total: 1200,
+    title: '',
+    before: '',
+    percent: 12,
+    success: true,
+  }, {
+    type: 'count',
+    total: 1200,
+    title: '',
+    before: '',
+    percent: 12,
+    success: true,
+  }
+]
 
 const customer = {
   id: "023AD50",
@@ -293,22 +321,24 @@ const Dashboard = () => {
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
           <div className="row mb-3">
-            <div className="col-12 col-lg-4 ">
-              <Card>
-                <div>Total revenue</div>
-              </Card>
-            </div>
-            <div className="col-12 col-lg-4 ">
-              <Card>
-                <div>Total Tickets</div>
-              </Card>
-            </div>
-
-            <div className="col-12 col-lg-4 ">
-              <Card>
-                <div>Overal ATP</div>
-              </Card>
-            </div>
+            {
+              array.map((item, i) => {
+                const total = item.type === 'currency' ? numeral(item.total).format('00,000') : item.total
+                const before = item.type === 'currency' ? numeral(item.before).format('00,000') : item.before
+                return (
+                  <div key={i} className="col-12 col-lg-4">
+                    <Card>
+                      <CardRule
+                        total={total}
+                        title={item.title}
+                        before={before}
+                        percent={item.percent}
+                        success={item.success} />
+                    </Card>
+                   </div>
+                  )
+              })
+            }
           </div>
           <div className="col-12 col-lg-3 mx-3"></div>
           <Card>

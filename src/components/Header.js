@@ -5,7 +5,6 @@ import Avatar from "./Avatar";
 // import { DropDownIcon } from "./icons";
 import logo from "./../assets/images/logo.svg";
 import * as icons from "./icons";
-import * as menu from "./menu";
 
 import { Link } from "react-router-dom";
 import cn from "classnames";
@@ -37,22 +36,18 @@ const Header = ({ path }) => {
       </div>
 
       <div className="header__nav">
-        {NAV_LIST.map((nav, i) => {
-          // const Icon = icons[nav.icon];
-          const Menu = menu[nav.menu];
-          const active = path === nav.url;
-          return (
-            <div
-              key={i}
-              className={cn("header__item text-capitalize", { active })}
-            >
-              <Link to={nav.url}>
-                {/* <Icon fill={active ? "#009EE8" : "#002550"} /> */}
-                <Menu colorActive={active ? "#FF6123" : "#607990"} />
-              </Link>
-            </div>
-          );
-        })}
+        {
+          NAV_LIST.map((nav, i) => {
+            const active = path === nav.url
+            return (
+              <div key={i} className={cn("header__item text-capitalize", { active })}>
+                <Link to={nav.url}>
+                  <div style={{ color: `${active ? "#FF6123" : "#607990"}` }}>{nav.title}</div>
+                </Link>
+              </div>
+            );
+          })
+        }
       </div>
 
       <div>

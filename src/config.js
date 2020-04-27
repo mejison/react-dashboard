@@ -1,27 +1,18 @@
 export const NAV_LIST = [
   {
-    // icon: "CastomerIcon",
-    menu: "Strategy",
+    title: "Strategy",
     url: "/",
   },
-  // {
-  //   icon: "CaseIcon",
-  //   url: "/video",
-  // },
   {
-    menu: "Menu1",
+    title: "Menu1",
     url: "/menu1",
   },
-  // {
-  //   icon: "RatesIcon",
-  //   url: "/rates",
-  // },
   {
-    menu: "Menu2",
+    title: "Menu2",
     url: "/menu2",
   },
   {
-    menu: "Menu3",
+    title: "Menu3",
     url: "/menu3",
   },
 ];
