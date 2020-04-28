@@ -1,6 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&Lato:wght@400;700;900&display=swap");
-@import "./variable.scss";
-@import "~bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&Lato:wght@400;700;900&display=swap');
+@import './variable.scss';
+@import '~bootstrap/scss/bootstrap.scss';
+
+.container-fluid {
+  max-width: $containar-fluid-max-width;
+}
 
 body {
   color: $body-color;
@@ -82,17 +86,48 @@ body {
   color: $grey;
   font-family: $card-font-family;
   font-size: $body-font-size;
-}
+  font-weight: $font-weight-normal;
 
-.card-rule-top {
-  border-bottom: 1px solid $cardline-color;
-}
-.card-rule-bottom {
-  padding-top: 16px;
-}
+  p {
+    margin-bottom: 0;
+  }
 
-.total {
-  font-size: $card-total-font-size;
+  .section-top {
+    padding-bottom: 12px;
+    border-bottom: 1px solid $cardline-color;
+    .title {
+      font-size: $body-font-size;
+    }
+
+    .total {
+      color: $color-total;
+      font-size: $card-total-font-size;
+      font-weight: $font-weight-black;
+      font-style: normal;
+    }
+    .total-percent {
+      font-size: $card-total-font-size;
+      font-weight: bold;
+    }
+  }
+
+  .section-bottom {
+    padding-top: 16px;
+    .subtitle {
+      font-size: $body-font-size;
+    }
+
+    .before {
+      font-size: $header-font-size;
+    }
+  }
+
+  .success {
+    color: $success-color;
+  }
+  .danger {
+    color: $danger-color;
+  }
 }
 
 .custom-calendar {

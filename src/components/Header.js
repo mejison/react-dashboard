@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 // import Timer from "./Timer";
-import Avatar from "./Avatar";
+import Avatar from './Avatar';
 // import DropDown from "./DropDown";
 // import { DropDownIcon } from "./icons";
-import logo from "./../assets/images/logo.svg";
-import * as icons from "./icons";
+import logo from './../assets/images/logo.svg';
+import * as icons from './icons';
 
-import { Link } from "react-router-dom";
-import cn from "classnames";
-import { NAV_LIST } from "../config";
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
+import { NAV_LIST } from '../config';
 
 const Header = ({ path }) => {
   // const ProfileMenu = [
@@ -36,18 +36,21 @@ const Header = ({ path }) => {
       </div>
 
       <div className="header__nav">
-        {
-          NAV_LIST.map((nav, i) => {
-            const active = path === nav.url
-            return (
-              <div key={i} className={cn("header__item text-capitalize", { active })}>
-                <Link to={nav.url}>
-                  <div style={{ color: `${active ? "#FF6123" : "#607990"}` }}>{nav.title}</div>
-                </Link>
-              </div>
-            );
-          })
-        }
+        {NAV_LIST.map((nav, i) => {
+          const active = path === nav.url;
+          return (
+            <div
+              key={i}
+              className={cn('header__item text-capitalize', { active })}
+            >
+              <Link to={nav.url}>
+                <div style={{ color: `${active ? '#FF6123' : '#607990'}` }}>
+                  {nav.title}
+                </div>
+              </Link>
+            </div>
+          );
+        })}
       </div>
 
       <div>

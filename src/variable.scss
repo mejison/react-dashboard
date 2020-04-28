@@ -1,6 +1,7 @@
 $header-height: 70px;
 $page-min-height: calc(100vh - #{$header-height});
 $sidebar-width: 80px;
+$containar-fluid-max-width: 1440px;
 
 $white: #fff;
 $light: #f9fafd;
@@ -31,7 +32,12 @@ $input-border: 1px solid rgba(0, 37, 80, 0.1);
 $input-height: 32px;
 $header-font-size: 18px;
 $body-font-size: 14px;
+//cardRule style
 $card-total-font-size: 20px;
-$card-font-family: "Lato", sans-serif;
-$cardline-color: #EAF1F9;
-
+$font-weight-normal: 400;
+$font-weight-black: 900;
+$color-total: #072c3b;
+$card-font-family: 'Lato', sans-serif;
+$cardline-color: #eaf1f9;
+$danger-color: #f64d4d;
+$success-color: #00c165;

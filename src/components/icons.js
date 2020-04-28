@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const ChevronRight = () => {
   return (
@@ -170,7 +170,7 @@ export const RightArrow = () => {
   );
 };
 
-export const CaseIcon = ({ fill = "" }) => {
+export const CaseIcon = ({ fill = '' }) => {
   return (
     <svg
       width="27"
@@ -189,7 +189,7 @@ export const CaseIcon = ({ fill = "" }) => {
   );
 };
 
-export const RatesIcon = ({ fill = "" }) => {
+export const RatesIcon = ({ fill = '' }) => {
   return (
     <svg
       width="30"
@@ -207,7 +207,7 @@ export const RatesIcon = ({ fill = "" }) => {
   );
 };
 
-export const CastomerIcon = ({ fill = "" }) => {
+export const CastomerIcon = ({ fill = '' }) => {
   return (
     <svg
       width="32"
@@ -226,7 +226,7 @@ export const CastomerIcon = ({ fill = "" }) => {
   );
 };
 
-export const RightNav = ({ fill = "" }) => {
+export const RightNav = ({ fill = '' }) => {
   return (
     <svg
       width="10"
@@ -297,7 +297,7 @@ export const PlusIcon = () => {
   );
 };
 
-export const BellIcon = ({ fill = "" }) => {
+export const BellIcon = ({ fill = '' }) => {
   return (
     <svg
       width="17"
@@ -344,6 +344,39 @@ export const QuestionMarkIcon = ({ fill }) => {
       <path
         fill={fill}
         d="m256 314.667969c-8.832031 0-16-7.167969-16-16v-21.546875c0-20.308594 12.886719-38.507813 32.042969-45.269532 25.492187-8.980468 42.625-36.140624 42.625-55.851562 0-32.363281-26.304688-58.667969-58.667969-58.667969s-58.667969 26.304688-58.667969 58.667969c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16c0-49.984375 40.664063-90.667969 90.667969-90.667969s90.667969 40.683594 90.667969 90.667969c0 35.585938-28.097657 73.367188-63.980469 86.039062-6.398438 2.238282-10.6875 8.316407-10.6875 15.101563v21.527344c0 8.832031-7.167969 16-16 16zm0 0"
+      />
+    </svg>
+  );
+};
+
+export const ArrowUpIcon = ({ fill }) => {
+  return (
+    <svg
+      width="10"
+      height="7"
+      viewBox="0 0 10 7"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.11222 0.211721C4.91302 -0.0705743 4.49437 -0.0705743 4.29516 0.211721L0.496802 5.5945C0.26308 5.92572 0.499957 6.38278 0.905331 6.38278L8.50205 6.38278C8.90743 6.38278 9.1443 5.92572 8.91058 5.5945L5.11222 0.211721Z"
+        fill={fill}
+      />
+    </svg>
+  );
+};
+
+export const ArrowDownIcon = ({ fill }) => {
+  return (
+    <svg
+      width="10"
+      height="7"
+      viewBox="0 0 9 7"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.89071 6.78828C4.08991 7.07057 4.50856 7.07057 4.70777 6.78828L8.50613 1.40549C8.73985 1.07428 8.50297 0.617216 8.0976 0.617216L0.500874 0.617217C0.0954997 0.617218 -0.141376 1.07428 0.0923449 1.4055L3.89071 6.78828Z"
+        fill={fill}
       />
     </svg>
   );
