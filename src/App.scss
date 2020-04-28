@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700&Lato:wght@400;700;900&display=swap");
 @import "./variable.scss";
 @import "~bootstrap/scss/bootstrap.scss";
 
@@ -73,6 +73,26 @@ body {
   &__item {
     margin: 0 30px;
   }
+}
+
+// || CARDRULE
+.card-rule {
+  width: 100%;
+  padding: 20px;
+  color: $grey;
+  font-family: $card-font-family;
+  font-size: $body-font-size;
+}
+
+.card-rule-top {
+  border-bottom: 1px solid $cardline-color;
+}
+.card-rule-bottom {
+  padding-top: 16px;
+}
+
+.total {
+  font-size: $card-total-font-size;
 }
 
 .custom-calendar {

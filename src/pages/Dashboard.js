@@ -9,35 +9,35 @@ import Badge from "../components/Badge";
 import numeral from "numeral";
 import Pagination from "../components/Pagination";
 import EmptyRules from "../components/EmptyRules";
-import CardRule from '../components/CardRule'
+import CardRule from "../components/CardRule";
 // import RuningString from '../components/RuningString'
 
-
-const array = [
+const cardRuleData = [
   {
-    type: 'currency',
-    total: 9960,
-    title: '',
-    before: '',
+    type: "currency",
+    total: 136990.32,
+    title: "Total revenue",
+    before: 9699.0,
     percent: 12,
     success: true,
-    
-  }, {
-    type: 'count',
-    total: 1200,
-    title: '',
-    before: '',
-    percent: 12,
+  },
+  {
+    type: "count",
+    total: 1250,
+    title: "Total Tickets",
+    before: 1600,
+    percent: 2,
+    success: false,
+  },
+  {
+    type: "currency",
+    total: 132.5,
+    title: "Overal ATP",
+    before: 102,
+    percent: 2,
     success: true,
-  }, {
-    type: 'count',
-    total: 1200,
-    title: '',
-    before: '',
-    percent: 12,
-    success: true,
-  }
-]
+  },
+];
 
 const customer = {
   id: "023AD50",
@@ -321,24 +321,29 @@ const Dashboard = () => {
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
           <div className="row mb-3">
-            {
-              array.map((item, i) => {
-                const total = item.type === 'currency' ? numeral(item.total).format('00,000') : item.total
-                const before = item.type === 'currency' ? numeral(item.before).format('00,000') : item.before
-                return (
-                  <div key={i} className="col-12 col-lg-4">
-                    <Card>
-                      <CardRule
-                        total={total}
-                        title={item.title}
-                        before={before}
-                        percent={item.percent}
-                        success={item.success} />
-                    </Card>
-                   </div>
-                  )
-              })
-            }
+            {cardRuleData.map((item, i) => {
+              const total =
+                item.type === "currency"
+                  ? numeral(item.total).format("0,0[.]00 $")
+                  : item.total;
+              const before =
+                item.type === "currency"
+                  ? numeral(item.before).format("0,0[.]00 $")
+                  : item.before;
+              return (
+                <div key={i} className="col-12 col-lg-4">
+                  <Card>
+                    <CardRule
+                      total={total}
+                      title={item.title}
+                      before={before}
+                      percent={item.percent}
+                      success={item.success}
+                    />
+                  </Card>
+                </div>
+              );
+            })}
           </div>
           <div className="col-12 col-lg-3 mx-3"></div>
           <Card>
