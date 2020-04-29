@@ -3,12 +3,15 @@ import { Switch, Redirect } from "react-router-dom";
 import PrivateLayout from "./layouts/Private";
 import "./App.scss";
 import PrivateRoute from "./components/PrivateRoute";
+import numeral from 'numeral';
+import 'numeral/locales/de'
+
+numeral.locale('de')
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Empty = lazy(() => import("./pages/EmptyPage"));
 
 const App = () => {
-  console.log("123");
   return (
     <div className="App">
       <Suspense fallback={<PrivateLayout />}>

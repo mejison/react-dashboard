@@ -1,15 +1,8 @@
 import React from 'react';
-import * as icons from './icons';
+import { ArrowDownIcon, ArrowUpIcon } from './icons';
 
 const CardRule = ({ title, total, percent, success, before }) => {
-  const colorResult = success === true ? 'success' : 'danger';
-  const arrowIcon =
-    success === true ? (
-      <icons.ArrowUpIcon fill="#00C165" />
-    ) : (
-      <icons.ArrowDownIcon fill="#F64D4D" />
-    );
-
+  const colorResult = success ? 'success' : 'danger';
   return (
     <div className="card-rule">
       <div className="section-top d-flex justify-content-between">
@@ -19,7 +12,9 @@ const CardRule = ({ title, total, percent, success, before }) => {
         </div>
         <div className="d-flex align-items-end">
           <div className="d-flex">
-            <div className="d-flex align-items-center">{arrowIcon}</div>
+            <div className="d-flex align-items-center">
+              { success ? <ArrowUpIcon fill="#00C165" /> : <ArrowDownIcon fill="#F64D4D" />}
+            </div>
             <p className={`total-percent px-1 ${colorResult}`}>
               {percent}
               <span>%</span>
