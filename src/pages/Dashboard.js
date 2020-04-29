@@ -10,6 +10,7 @@ import numeral from 'numeral';
 import Pagination from '../components/Pagination';
 import EmptyRules from '../components/EmptyRules';
 import CardRule from '../components/CardRule';
+import SearchInput from './../components/SearchInput';
 // import RuningString from '../components/RuningString'
 
 const cardRuleData = [
@@ -320,6 +321,7 @@ const Dashboard = () => {
     <div className="h-100 container-fluid pt-3">
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
+          {/* CARDRULE */}
           <div className="row mb-3">
             {cardRuleData.map((item, i) => {
               const total =
@@ -345,9 +347,10 @@ const Dashboard = () => {
               );
             })}
           </div>
+          {/* MAIN CONTENT */}
           <div className="col-12 col-lg-3 mx-3"></div>
           <Card>
-            <div>MAIN CONTENT</div>
+            <SearchInput />
           </Card>
         </div>
 
