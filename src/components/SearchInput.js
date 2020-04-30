@@ -1,5 +1,5 @@
 import React from 'react';
-// import { SearchInputIcon } from './icons';
+// import { SearchIcon } from './icons';
 
 const SearchInput = () => {
   return (
@@ -9,6 +9,9 @@ const SearchInput = () => {
         placeholder="Search by product name"
         // style={{ backgroundImage: `url(${(<SearchInputIcon />)})` }}
       />
+      {/* <div className="input-search-icon">
+        <SearchIcon />
+      </div> */}
     </div>
   );
 };

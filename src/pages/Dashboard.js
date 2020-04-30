@@ -50,6 +50,50 @@ const customer = {
   status: 'Active',
 };
 
+//MAIN TABLE
+const productsData = [
+  {
+    product: 'TBV London-TKV Geneva',
+    date: '18/02',
+    revenue: 862292.06,
+    changefirst: 1.35,
+    tickets: 400,
+    changesecond: 0.55,
+    atp: 40.64,
+    baserevenue: 862292.06,
+  },
+  {
+    product: 'TBV London-TKV Geneva',
+    date: '18/02',
+    revenue: 862292.06,
+    changefirst: 1.35,
+    tickets: 400,
+    changesecond: 0.55,
+    atp: 40.64,
+    baserevenue: 862292.06,
+  },
+  {
+    product: 'TBV London-TKV Geneva',
+    date: '18/02',
+    revenue: 862292.06,
+    changefirst: 1.35,
+    tickets: 400,
+    changesecond: 0.55,
+    atp: 40.64,
+    baserevenue: 862292.06,
+  },
+  {
+    product: 'TBV London-TKV Geneva',
+    date: '18/02',
+    revenue: 862292.06,
+    changefirst: 1.35,
+    tickets: 400,
+    changesecond: 0.55,
+    atp: 40.64,
+    baserevenue: 862292.06,
+  },
+];
+
 const accountsData = [
   {
     acc: '012456',
@@ -180,6 +224,46 @@ const Dashboard = () => {
     txCategory: '',
   });
   const [startDate, setStartDate] = useState(null);
+
+  //MAIN TABLE
+  const columnsProducts = [
+    {
+      title: 'Product Name',
+      key: 'product',
+    },
+
+    {
+      title: 'Date',
+      key: 'date',
+    },
+    {
+      title: 'Revenue',
+      key: 'revenue',
+    },
+
+    {
+      title: '%Change',
+      key: 'changefirst',
+    },
+
+    {
+      title: 'Tickets',
+      key: 'tickets',
+    },
+
+    {
+      title: '%Change',
+      key: 'changesecond',
+    },
+    {
+      title: 'ATP',
+      key: 'atp',
+    },
+    {
+      title: 'Base Revenue',
+      key: 'baserevenue',
+    },
+  ];
   const columnsAccounts = [
     {
       title: 'Acc #',
@@ -347,11 +431,19 @@ const Dashboard = () => {
               );
             })}
           </div>
-          {/* MAIN CONTENT */}
-          <div className="col-12 col-lg-3 mx-3"></div>
-          <Card>
-            <SearchInput />
-          </Card>
+          {/* MAIN TABLE */}
+          <div classNmae="row">
+            <Card className="h-100">
+              <div className="p-2">
+                <SearchInput />
+              </div>
+
+              {/* TABLE */}
+              <div>
+                <Table columns={columnsProducts} data={productsData} />
+              </div>
+            </Card>
+          </div>
         </div>
 
         {/* Empty_Rules */}
@@ -360,7 +452,8 @@ const Dashboard = () => {
             <EmptyRules />
           </Card>
         </div>
-        {/* /EmptyRules */}
+
+        {/*===============OLD CODE ================== */}
       </div>
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-4 mb-3">
