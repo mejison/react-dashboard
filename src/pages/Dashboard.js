@@ -11,6 +11,7 @@ import Pagination from '../components/Pagination';
 import EmptyRules from '../components/EmptyRules';
 import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
+import SettingsBlock from './../components/SettingsBlock';
 // import RuningString from '../components/RuningString'
 
 const cardRuleData = [
@@ -446,10 +447,11 @@ const Dashboard = () => {
             })}
           </div>
           {/* MAIN TABLE */}
-          <div classNmae="row">
+          <div>
             <Card className="h-100">
-              <div className="p-2">
+              <div className="p-2 d-flex justify-content-between">
                 <SearchInput />
+                <SettingsBlock />
               </div>
 
               {/* TABLE */}
