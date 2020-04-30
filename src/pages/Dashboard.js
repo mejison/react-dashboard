@@ -56,7 +56,7 @@ const productsData = [
     product: 'TBV London-TKV Geneva',
     date: '18/02',
     revenue: 862292.06,
-    changefirst: 1.35,
+    changefirst: -1.35,
     tickets: 400,
     changesecond: 0.55,
     atp: 40.64,
@@ -66,7 +66,7 @@ const productsData = [
     product: 'TBV London-TKV Geneva',
     date: '18/02',
     revenue: 862292.06,
-    changefirst: 1.35,
+    changefirst: -1.35,
     tickets: 400,
     changesecond: 0.55,
     atp: 40.64,
@@ -76,7 +76,7 @@ const productsData = [
     product: 'TBV London-TKV Geneva',
     date: '18/02',
     revenue: 862292.06,
-    changefirst: 1.35,
+    changefirst: -1.35,
     tickets: 400,
     changesecond: 0.55,
     atp: 40.64,
@@ -86,7 +86,7 @@ const productsData = [
     product: 'TBV London-TKV Geneva',
     date: '18/02',
     revenue: 862292.06,
-    changefirst: 1.35,
+    changefirst: -1.35,
     tickets: 400,
     changesecond: 0.55,
     atp: 40.64,
@@ -244,6 +244,7 @@ const Dashboard = () => {
     {
       title: '%Change',
       key: 'changefirst',
+      cell: (row) => renderChangeCell(row.changefirst),
     },
 
     {
@@ -254,6 +255,7 @@ const Dashboard = () => {
     {
       title: '%Change',
       key: 'changesecond',
+      cell: (row) => renderChangeCell(row.changesecond),
     },
     {
       title: 'ATP',
@@ -399,6 +401,18 @@ const Dashboard = () => {
         return <Badge title={status} level="danger" />;
       default:
         return <Badge title={status} />;
+    }
+  };
+
+  const renderChangeCell = (change) => {
+    const getChange = change > 0 ? 'positive' : 'negative';
+    switch (getChange) {
+      case 'positive':
+        return <Badge title={change} level="success" />;
+      case 'negative':
+        return <Badge title={change} level="danger" />;
+      default:
+        return <Badge title={change} />;
     }
   };
   return (
