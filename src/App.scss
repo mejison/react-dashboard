@@ -57,7 +57,7 @@ body {
 .header {
   height: $header-height;
   background-color: $white;
-  color: $grey;
+  color: $color-secondary;
   font-size: $header-font-size;
   border-bottom: 1px solid #eaf1f9;
   // .divider {
@@ -80,7 +80,7 @@ body {
 .card-rule {
   width: 100%;
   padding: 20px;
-  color: $grey;
+  color: $color-secondary;
   font-family: $card-font-family;
   font-size: $body-font-size;
   font-weight: $font-weight-normal;
@@ -97,7 +97,7 @@ body {
     }
 
     .total {
-      color: $color-total;
+      color: $color-main;
       font-size: $card-total-font-size;
       font-weight: $font-weight-black;
       font-style: normal;
@@ -322,41 +322,56 @@ body {
 //===============
 // SearchInput
 //===============
+.search-input {
+  input {
+    background: $white
+      url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+      10px center;
+    outline: none;
+  }
 
-.search-input input {
-  outline: none;
-}
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button {
+    display: none;
+  }
 
-.search-input input[type='search'] {
-  background: #ffffff
-    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
-    10px center;
-  border: 1px solid #d6dce3;
-  background-color: #ffffff;
-  border-radius: 6px;
-  transition: all 0.5s;
-}
+  input[type='search'] {
+    // background: $white
+    //   url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    //  10px center;
+    border: 1px solid $border-color-default;
+    background-color: $white;
+    border-radius: 6px;
+    transition: all 0.5s;
+  }
 
-.search-input input[type='search'] {
-  width: 40px;
-  padding: 10px 0 10px 40px;
-  color: transparent;
-  font-family: inherit;
-  font-size: 100%;
-  cursor: pointer;
-}
+  input::placeholder {
+    text-transform: capitalize;
+    opacity: 1; /* Firefox */
+    color: $color-secondary;
+  }
 
-//hover
-.search-input input[type='search']:hover {
-  background-color: #fff;
-}
-//focus
-.search-input input[type='search']:focus {
-  width: 350px;
-  padding-left: 40px;
-  color: #3991e2;
-  background-color: #f7f9fd;
-  border-color: #093c50;
-  // box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
-  cursor: auto;
+  input[type='search'] {
+    width: 40px;
+    padding: 10px 0 10px 40px;
+    color: transparent;
+    font-family: inherit;
+    font-size: 100%;
+    cursor: pointer;
+  }
+
+  //hover
+  input[type='search']:hover {
+    background-color: $bg-color;
+  }
+
+  //focus
+  input[type='search']:focus {
+    width: $input-width;
+    padding-left: 40px;
+    color: #3991e2;
+    background-color: $bg-color;
+    border-color: $input-border-color-focus;
+    cursor: auto;
+  }
 }

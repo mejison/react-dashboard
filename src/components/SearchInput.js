@@ -1,11 +1,14 @@
 import React from 'react';
+// import { SearchInputIcon } from './icons';
 
 const SearchInput = () => {
   return (
-    <div>
-      <form className="search-input">
-        <input type="search" placeholder="Search by product name" />
-      </form>
+    <div className="search-input">
+      <input
+        type="search"
+        placeholder="Search by product name"
+        // style={{ backgroundImage: `url(${(<SearchInputIcon />)})` }}
+      />
     </div>
   );
 };

@@ -5,7 +5,7 @@ $containar-fluid-max-width: 1440px;
 
 $white: #fff;
 $light: #f9fafd;
-$grey: #607990;
+
 $secondary: rgba(0, 37, 80, 0.4);
 $blue: #009ee8;
 $green: #06874c;
@@ -32,12 +32,20 @@ $input-border: 1px solid rgba(0, 37, 80, 0.1);
 $input-height: 32px;
 $header-font-size: 18px;
 $body-font-size: 14px;
-//cardRule style
+
+//CardRule style
+$color-main: #072c3b;
+$color-secondary: #607990;
 $card-total-font-size: 20px;
 $font-weight-normal: 400;
 $font-weight-black: 900;
-$color-total: #072c3b;
 $card-font-family: 'Lato', sans-serif;
 $cardline-color: #eaf1f9;
 $danger-color: #f64d4d;
 $success-color: #00c165;
+
+//SearchInput
+$bg-color: #f8fbfe;
+$border-color-default: #d6dce3;
+$input-border-color-focus: #093c50;
+$input-width: 350px;
