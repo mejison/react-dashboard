@@ -57,12 +57,12 @@ const Header = ({ path }) => {
         {/* <DropDown list={ProfileMenu}> */}
         <div className="d-flex align-items-center">
           <div className="header__icon mr-3 pointer">
-            <icons.BellIcon fill="#607990" />
+            <icons.BellIcon fill="#ffffff" />
           </div>
           <div className="header__icon mr-3 pointer">
-            <icons.QuestionMarkIcon fill="#607990" />
+            <icons.QuestionMarkIcon fill="#ffffff" />
           </div>
-          <div className="mr-2 d-flex pointer">
+          <div className="heaer-avatar mr-2 d-flex pointer">
             <Avatar src="" />
           </div>
           {/* <div className="mr-2">John Snow</div> */}

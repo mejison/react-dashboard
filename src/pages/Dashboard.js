@@ -12,7 +12,7 @@ import EmptyRules from '../components/EmptyRules';
 import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
-import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
+// import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
 import ButtonView from '../components/ButtonView';
 // import { ChartViewIcon, TableViewIcon } from './../components/icons';
 // import Switch from './../components/ToggleSwitch/Switch.js';
@@ -229,7 +229,7 @@ const Dashboard = () => {
     txCategory: '',
   });
   const [startDate, setStartDate] = useState(null);
-  const [value, setValue] = useState(true);
+
   // const [tab, setTab] = useState(false);
   const [query, setQuery] = useState('');
   const [show, setShow] = useState(true);
@@ -510,12 +510,6 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <SettingsBlock />
-                  </div>
-                  <div>
-                    <ToggleSwitch
-                      value={value}
-                      onChange={(val) => setValue(val)}
-                    />
                   </div>
                 </div>
 

@@ -56,7 +56,7 @@ body {
 
 .header {
   height: $header-height;
-  background-color: $white;
+  background-color: $input-border-color-focus;
   color: $color-secondary;
   font-size: $header-font-size;
   border-bottom: 1px solid #eaf1f9;
@@ -325,34 +325,36 @@ body {
 .search-input {
   position: relative;
   box-sizing: border-box;
-  input {
-    outline: none;
-  }
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid $border-color-default;
+  background-color: $white;
+  transition: all 0.5s;
 
   input::-webkit-search-decoration,
   input::-webkit-search-cancel-button {
     display: none;
   }
 
-  input[type='search'] {
-    // background: $white
-    //   url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
-    //  10px center;
-    border: 1px solid $border-color-default;
-    background-color: $white;
-    border-radius: 6px;
-    transition: all 0.5s;
-  }
-
   input::placeholder {
     text-transform: capitalize;
     opacity: 1; /* Firefox */
     color: $color-secondary;
+    box-sizing: border-box;
   }
 
   input[type='search'] {
-    width: 40px;
-    padding: 10px 0 10px 40px;
+    // display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0;
+    padding-left: 38px;
+    border-radius: 6px;
     color: transparent;
     font-family: inherit;
     font-size: 100%;
@@ -362,36 +364,38 @@ body {
   //hover
   input[type='search']:hover {
     background-color: $bg-color;
+    box-sizing: border-box;
   }
 
-  //focus
+  //active
   &.active {
+    width: 320px;
+    border-color: $input-border-color-focus;
     input {
-      width: $input-width;
-      padding-left: 40px;
       color: #3991e2;
       background-color: $bg-color;
-      border-color: $input-border-color-focus;
       cursor: auto;
     }
   }
+
+  //focus
   input[type='search']:focus {
-    width: $input-width;
-    padding-left: 40px;
     color: #3991e2;
     background-color: $bg-color;
-    border-color: $input-border-color-focus;
     cursor: auto;
   }
 
   .input-search-icon {
     position: absolute;
+    border-radius: 6px;
     top: 50%;
     transform: translateY(-50%);
-    left: 13px;
+    left: 11px;
+    cursor: pointer;
   }
 }
 
+//SettingsIcon
 .icon-wrapper {
   display: flex;
   align-items: center;

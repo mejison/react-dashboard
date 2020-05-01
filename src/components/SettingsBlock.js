@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SettingsIcon } from './icons';
+import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
 
 const SettingsBlock = () => {
+  const [value, setValue] = useState(true);
   return (
     <div className="settings-block">
       <div className="icon-wrapper">
@@ -11,6 +13,9 @@ const SettingsBlock = () => {
         <button>Essentials</button>
         <button>Compact view</button>
         <button>Default</button>
+      </div>
+      <div className="d-none">
+        <ToggleSwitch value={value} onChange={(val) => setValue(val)} />
       </div>
       <div style={{ display: 'none' }}>Checkboxes</div>
     </div>
