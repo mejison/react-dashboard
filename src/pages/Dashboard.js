@@ -12,6 +12,7 @@ import EmptyRules from '../components/EmptyRules';
 import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
+import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
 // import RuningString from '../components/RuningString'
 
 const cardRuleData = [
@@ -225,6 +226,7 @@ const Dashboard = () => {
     txCategory: '',
   });
   const [startDate, setStartDate] = useState(null);
+  const [value, setValue] = useState(false);
 
   //MAIN TABLE
   const columnsProducts = [
@@ -452,6 +454,12 @@ const Dashboard = () => {
               <div className="p-2 d-flex justify-content-between">
                 <SearchInput />
                 <SettingsBlock />
+                <div>
+                  <ToggleSwitch
+                    isOn={value}
+                    handleToggle={() => setValue(!value)}
+                  />
+                </div>
               </div>
 
               {/* TABLE */}
