@@ -422,6 +422,15 @@ const Dashboard = () => {
     <div className="h-100 container-fluid pt-3">
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
+          <div className="d-flex justify-content-between">
+            <div className="title-page">
+              <h3>Attendance pricing Strategy</h3>
+            </div>
+            <div className="change-view-table">
+              <div>Chart view</div>
+              <div>Table view</div>
+            </div>
+          </div>
           {/* CARDRULE */}
           <div className="row mb-3">
             {cardRuleData.map((item, i) => {
