@@ -462,7 +462,7 @@ export const TableViewIcon = ({ fill }) => {
   );
 };
 
-export const ChartViewIcon = (fill) => {
+export const ChartViewIcon = ({ fill }) => {
   return (
     <svg
       width="19"

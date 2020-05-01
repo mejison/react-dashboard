@@ -444,3 +444,11 @@ body {
   background-color: #ff7038;
   color: $white;
 }
+
+.button-wrapper:hover {
+  color: #254653;
+}
+
+.button-wrapper.active-button:hover {
+  color: $white;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import { TableViewIcon } from './icons';
 
-const ButtonView = ({ changeView, show, title, icon }) => {
+const ButtonView = ({ changeView, show, title }) => {
   return (
     <div
       className={`button-wrapper d-flex justify-content-between align-items-center ${
         show ? 'active-button' : ''
       }
       `}
-      onClick={changeView}
+      onClick={!show ? changeView : null}
     >
       <div>
         <p>{title}</p>

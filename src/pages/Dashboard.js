@@ -447,6 +447,11 @@ const Dashboard = () => {
                     title="Chart view"
                     changeView={changeView}
                     show={!show}
+                    // icon={
+                    // <ChartViewIcon
+                    // fill={`${!show ? '#ffffff' : '#607990'}`}
+                    // />
+                    // }
                     // icon={ChartViewIcon}
                   />
                 </div>
@@ -455,7 +460,11 @@ const Dashboard = () => {
                     title="Table view"
                     changeView={changeView}
                     show={show}
-                    // icon={TableViewIcon}
+                    // icon={
+                    //   <TableViewIcon
+                    //   fill={`${show ? '#ffffff' : '#607990'}`}
+                    //   />
+                    // }
                   />
                 </div>
               </div>
