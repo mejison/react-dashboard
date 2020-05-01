@@ -13,6 +13,7 @@ import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
 import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
+import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
 
 const cardRuleData = [
@@ -60,7 +61,7 @@ const productsData = [
     revenue: 862292.06,
     changefirst: -1.35,
     tickets: 400,
-    changesecond: 0.55,
+    changesecond: 0,
     atp: 40.64,
     baserevenue: 862292.06,
   },
@@ -226,7 +227,9 @@ const Dashboard = () => {
     txCategory: '',
   });
   const [startDate, setStartDate] = useState(null);
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState(true);
+  const [tab, setTab] = useState(false)
+  const [query, setQuery] = useState('')
 
   //MAIN TABLE
   const columnsProducts = [
@@ -408,7 +411,7 @@ const Dashboard = () => {
   };
 
   const renderChangeCell = (change) => {
-    const getChange = change > 0 ? 'positive' : 'negative';
+    const getChange = change > 0 ? 'positive' : (change < 0 ? 'negative' : '');
     switch (getChange) {
       case 'positive':
         return <Badge title={change} level="success" />;
@@ -418,6 +421,10 @@ const Dashboard = () => {
         return <Badge title={change} />;
     }
   };
+  const handleChangeSwitch = val => {
+    setTab(val)
+  }
+  console.log(tab)
   return (
     <div className="h-100 container-fluid pt-3">
       <div className="row">
@@ -452,12 +459,16 @@ const Dashboard = () => {
           <div>
             <Card className="h-100">
               <div className="p-2 d-flex justify-content-between">
-                <SearchInput />
-                <SettingsBlock />
+                <div>
+                  <SearchInput value={query} onChange={val => setQuery(val)} />
+                </div>
+                <div>
+                  <SettingsBlock />
+                </div>
                 <div>
                   <ToggleSwitch
-                    isOn={value}
-                    handleToggle={() => setValue(!value)}
+                    value={value}
+                    onChange={(val) => setValue(val)}
                   />
                 </div>
               </div>

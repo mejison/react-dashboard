@@ -9,9 +9,4 @@ const Card = ({title, children, footer, className}) => {
 	)
 }
 
-const isEqual = (prev, next) => {
-	console.log(prev, next)
-	return true
-}
-
-export default memo(Card, isEqual)
+export default Card
