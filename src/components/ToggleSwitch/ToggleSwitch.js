@@ -1,14 +1,18 @@
 import React from 'react';
 import './ToggleSwitch.scss';
+import cn from 'classnames';
 
-const ToggleSwitch = ({ isOn, handleToggle }) => {
+const ToggleSwitch = ({ value, onChange }) => {
+  const handleChange = ({ target: { checked } }) => {
+    onChange(checked);
+  };
   return (
     <>
       <input
-        checked={isOn}
-        onChange={handleToggle}
-        className="react-switch-checkbox"
-        id={`react-switch-new`}
+        checked={value}
+        onChange={handleChange}
+        className={cn('react-switch-checkbox', { checked: value })}
+        id="react-switch-new"
         type="checkbox"
       />
       <label className="react-switch-label" htmlFor={`react-switch-new`}>

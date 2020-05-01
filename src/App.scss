@@ -323,11 +323,9 @@ body {
 // SearchInput
 //===============
 .search-input {
+  position: relative;
   box-sizing: border-box;
   input {
-    background: $white
-      url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
-      10px center;
     outline: none;
   }
 
@@ -367,6 +365,16 @@ body {
   }
 
   //focus
+  &.active {
+    input {
+      width: $input-width;
+      padding-left: 40px;
+      color: #3991e2;
+      background-color: $bg-color;
+      border-color: $input-border-color-focus;
+      cursor: auto;
+    }
+  }
   input[type='search']:focus {
     width: $input-width;
     padding-left: 40px;
@@ -376,12 +384,12 @@ body {
     cursor: auto;
   }
 
-  // .input-search-icon {
-  //   position: absolute;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   left: 13px;
-  // }
+  .input-search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 13px;
+  }
 }
 
 .icon-wrapper {
@@ -399,6 +407,40 @@ body {
   background: $bg-color;
 }
 
+//SettingsBlock
 .buttons-block {
   display: none;
+}
+
+//Title section
+.title-section {
+  font-family: $body-font-family;
+  font-size: $card-total-font-size;
+  font-weight: $font-weight-bold;
+  color: $color-main;
+}
+
+.change-view-table {
+  border: 1px solid $color-secondary;
+  border-radius: 6px;
+  padding: 3px 4px;
+}
+
+//ButtonView
+.button-wrapper {
+  font-family: $card-font-family;
+  font-weight: normal;
+  color: $color-secondary;
+  border-radius: 4px;
+  padding: 8px 7px;
+  min-width: 105px;
+  cursor: pointer;
+  p {
+    margin: 0;
+  }
+}
+
+.button-wrapper.active-button {
+  background-color: #ff7038;
+  color: $white;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Badge = ({ title, level = 'success' }) => {
+const Badge = ({ title, level = 'secondary' }) => {
   return <div className={`badge badge-${level}`}>{title}</div>;
 };
 
