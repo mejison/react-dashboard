@@ -3,6 +3,7 @@ import { Switch, Redirect } from "react-router-dom";
 import PrivateLayout from "./layouts/Private";
 import "./App.scss";
 import PrivateRoute from "./components/PrivateRoute";
+import Modal from './components/Modal'
 import numeral from 'numeral';
 import 'numeral/locales/de'
 
@@ -22,14 +23,12 @@ const App = () => {
           <PrivateRoute exact path="/menu1" component={Empty} />
           <PrivateRoute exact path="/menu2" component={Empty} />
           <PrivateRoute exact path="/menu3" component={Empty} />
-
           <Redirect to="/" />
         </Switch>
       </Suspense>
+      <Modal />
     </div>
   );
 };
 
-console.log("front");
-
-export default App;
+export default App

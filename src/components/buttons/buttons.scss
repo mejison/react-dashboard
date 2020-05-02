@@ -1,0 +1,50 @@
+@import '../../variable.scss';
+
+.btn {
+  padding: 0px 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  
+  &.btn-main {
+    background: #FF7038;
+    box-shadow: 0px 4px 32px rgba(77, 69, 66, 0.2);
+    height: 48px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 12px;
+    justify-content: center;
+    &:hover {
+      color: #FF7038;
+      background-color: transparent;
+      border-color: #FF7038;
+
+    }
+  }
+  &.btn-outline-secondary {
+    border-color: $secondary;
+    color: $secondary;
+  }
+  &.btn-outline-primary {
+    svg {
+      path {
+        fill: $blue;
+        fill-opacity: 1;
+      }
+    }
+  }
+  &:hover {
+    color: $white;
+    background-color: $blue;
+    border-color: $blue;
+    svg {
+      path {
+        fill: $white;
+        fill-opacity: 1;
+      }
+    }
+  }
+}

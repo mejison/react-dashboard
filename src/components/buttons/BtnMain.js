@@ -1,8 +1,9 @@
 import React from 'react'
 import * as icons from '../icons'
 import cn from 'classnames'
+import './buttons.scss'
 
-const BtnMain = ({type = 'button', title, onClick, iconRight, iconLeft, variant, disabled, className}) => {
+const BtnMain = ({type = 'button', title, onClick, iconRight, iconLeft, variant = 'main', disabled, className}) => {
 	const IconRight = icons[iconRight]
 	const IconLeft = icons[iconLeft]
 	return (

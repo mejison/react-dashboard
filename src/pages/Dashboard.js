@@ -15,6 +15,7 @@ import SettingsBlock from './../components/SettingsBlock';
 import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
 import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
+import RuleList from '../components/RuleList'
 
 const cardRuleData = [
   {
@@ -484,7 +485,7 @@ const Dashboard = () => {
         {/* Empty_Rules */}
         <div className="col-12 col-sm-6 col-lg-3 mb-3">
           <Card>
-            <EmptyRules />
+            <RuleList />
           </Card>
         </div>
 
