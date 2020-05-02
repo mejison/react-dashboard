@@ -1,7 +1,6 @@
 import React from 'react';
-import { TableViewIcon } from './icons';
 
-const ButtonView = ({ changeView, show, title }) => {
+const ButtonView = ({ changeView, show, title, icon: Icon }) => {
   return (
     <div
       className={`button-wrapper d-flex justify-content-between align-items-center ${
@@ -14,7 +13,7 @@ const ButtonView = ({ changeView, show, title }) => {
         <p>{title}</p>
       </div>
       <div className="d-flex align-items-center">
-        <TableViewIcon fill={`${show ? '#ffffff' : '#607990'}`} />
+        <Icon />
       </div>
     </div>
   );

@@ -14,10 +14,11 @@ import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
 // import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
 import ButtonView from '../components/ButtonView';
-// import { ChartViewIcon, TableViewIcon } from './../components/icons';
+import { ChartViewIcon, TableViewIcon } from './../components/icons';
 // import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
 import RuleList from '../components/RuleList'
+import { connect } from 'react-redux'
 
 const cardRuleData = [
   {
@@ -221,7 +222,7 @@ const txTypeOptions = [
   { id: 2, title: 'Show 30 days' },
 ];
 
-const Dashboard = () => {
+const Dashboard = ({filterColumns}) => {
   const [form, setForm] = useState({
     dateTransaction: '',
     transactionLimit: '',
@@ -245,7 +246,6 @@ const Dashboard = () => {
       title: 'Product Name',
       key: 'product',
     },
-
     {
       title: 'Date',
       key: 'date',
@@ -254,18 +254,15 @@ const Dashboard = () => {
       title: 'Revenue',
       key: 'revenue',
     },
-
     {
       title: '%Change',
       key: 'changefirst',
       cell: (row) => renderChangeCell(row.changefirst),
     },
-
     {
       title: 'Tickets',
       key: 'tickets',
     },
-
     {
       title: '%Change',
       key: 'changesecond',
@@ -448,12 +445,7 @@ const Dashboard = () => {
                     title="Chart view"
                     changeView={changeView}
                     show={!show}
-                    // icon={
-                    // <ChartViewIcon
-                    // fill={`${!show ? '#ffffff' : '#607990'}`}
-                    // />
-                    // }
-                    // icon={ChartViewIcon}
+                    icon={ChartViewIcon}
                   />
                 </div>
                 <div>
@@ -461,11 +453,7 @@ const Dashboard = () => {
                     title="Table view"
                     changeView={changeView}
                     show={show}
-                    // icon={
-                    //   <TableViewIcon
-                    //   fill={`${show ? '#ffffff' : '#607990'}`}
-                    //   />
-                    // }
+                    icon={TableViewIcon}
                   />
                 </div>
               </div>
@@ -516,7 +504,7 @@ const Dashboard = () => {
 
                 {/* TABLE */}
                 <div>
-                  <Table columns={columnsProducts} data={productsData} />
+                  <Table columns={columnsProducts.filter(col => !filterColumns.includes(col.key))} data={productsData} />
                 </div>
               </Card>
             </div>
@@ -749,4 +737,8 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+const mapStateToProps = ({app}) => ({
+  filterColumns: app.filterColumns,
+})
+
+export default connect(mapStateToProps)(Dashboard)

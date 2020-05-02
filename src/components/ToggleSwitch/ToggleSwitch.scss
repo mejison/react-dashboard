@@ -1,3 +1,5 @@
+@import './../../variable.scss';
+
 .react-switch-checkbox {
   height: 0;
   width: 0;
@@ -9,9 +11,9 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 100px;
-  height: 50px;
-  background: grey;
+  width: 66px;
+  height: 24px;
+  background: $color-main;
   border-radius: 100px;
   position: relative;
   transition: background-color 0.2s;
@@ -20,10 +22,10 @@
 .react-switch-label .react-switch-button {
   content: '';
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 45px;
-  height: 45px;
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
   border-radius: 45px;
   transition: 0.2s;
   background: #fff;
@@ -31,10 +33,10 @@
 }
 
 .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
-  left: calc(100% - 2px);
+  left: calc(100% - 6px);
   transform: translateX(-100%);
 }
 
 .react-switch-label:active .react-switch-button {
-  width: 50px;
+  width: 13px;
 }
