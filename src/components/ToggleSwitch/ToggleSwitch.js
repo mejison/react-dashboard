@@ -15,7 +15,13 @@ const ToggleSwitch = ({ value, onChange }) => {
         id="react-switch-new"
         type="checkbox"
       />
-      <label className="react-switch-label" htmlFor={`react-switch-new`}>
+      <label
+        style={{ backgroundColor: !value && '#BECDDB' }}
+        className="react-switch-label"
+        htmlFor={`react-switch-new`}
+      >
+        <span className="on">ON</span>
+        <span className="off">OFF</span>
         <span className={`react-switch-button`} />
       </label>
     </>

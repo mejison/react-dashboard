@@ -392,7 +392,7 @@ body {
 }
 
 //SettingsBlock
-.icon-wrapper {
+.icon-settings-block {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -403,16 +403,16 @@ body {
   cursor: pointer;
 }
 
-.icon-wrapper.active-button {
+.icon-settings-block.active-button {
   background-color: #ff7038;
   color: $white;
 }
 
-.icon-wrapper:hover {
+.icon-settings-block:hover {
   background: $bg-color;
 }
 
-.icon-wrapper.active-button:hover {
+.icon-settings-block.active-button:hover {
   color: $color-secondary;
   background-color: #ff7038;
 }
@@ -427,14 +427,22 @@ body {
   margin-top: 8px;
   border-radius: 6px;
   border: 1px solid $border-color-default;
+  font-family: $card-font-family;
+  font-weight: normal;
+  color: $color-main;
 
-  .settings-button {
+  .settings-button-view {
     width: 100%;
     min-height: 40px;
     background-color: $white;
     border-radius: 6px;
     border: 1px solid $border-color-button;
     margin-bottom: 12px;
+  }
+
+  .title-toggleSwitch {
+    font-size: 16px;
+    font-weight: $body-font-weight;
   }
 }
 

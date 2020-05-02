@@ -40,3 +40,33 @@
 .react-switch-label:active .react-switch-button {
   width: 13px;
 }
+
+.on,
+.off {
+  color: white;
+  position: absolute;
+  font-size: 14px;
+  font-family: $card-font-family;
+  font-weight: normal;
+}
+
+.on {
+  display: none;
+  left: 6px;
+}
+
+.off {
+  right: 6px;
+}
+
+.react-switch-checkbox:checked + .react-switch-label .on {
+  display: block;
+}
+
+.react-switch-checkbox:checked + .react-switch-label .off {
+  display: none;
+}
+
+.react-switch-label {
+  margin: 0;
+}

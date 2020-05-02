@@ -3,8 +3,7 @@ import { SettingsIcon } from './icons';
 import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
 import { connect } from 'react-redux';
 import { setAppState } from '../actions/app';
-import './CheckboxContainer/CheckboxContainer.scss';
-import CheckboxContainer from './../components/CheckboxContainer/CheckboxContainer';
+import CheckboxCustom from './../components/CheckboxCustom/CheckboxCustom';
 
 const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
   const [value, setValue] = useState(true);
@@ -20,50 +19,39 @@ const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
     dispatch(setAppState('filterColumns', list));
   };
   return (
-    <div className="settings-block position-relative">
+    <div className=" position-relative">
       <div
-        className={`icon-wrapper ${showBlock ? 'active-button' : ''}`}
+        className={`icon-settings-block ${showBlock ? 'active-button' : ''}`}
         onClick={onChangeShowBlock}
       >
         <SettingsIcon fill={`${showBlock ? '#ffffff' : '#607990'}`} />
       </div>
       {showBlock ? (
+        // --DropDown Settings Block --
         <div className="dropdown-settings-block position-absolute">
           <div className="buttons-block">
-            <button className="settings-button">Essentials</button>
-            <button className="settings-button">Compact view</button>
-            <button className="settings-button">Default</button>
+            <button className="settings-button-view">Essentials</button>
+            <button className="settings-button-view">Compact view</button>
+            <button className="settings-button-view">Default</button>
           </div>
-          <div className="d-flex justify-content-between align-items-center">
-            <span>Custom Settings</span>
+          {/* -- ToggleSwitch -- */}
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <span className="title-toggleSwitch">Custom Settings</span>
             <ToggleSwitch value={value} onChange={(val) => setValue(val)} />
           </div>
           <div>
             {/* -- form-checkbox -- */}
-
             {columnsProducts.map((item, index) => {
               return (
-                <CheckboxContainer
-                  key={index}
-                  handleChangeCheckbox={handleChangeCheckbox(item.key)}
-                  filterColumns={!filterColumns.includes(item.key)}
-                  title={item.title}
-                />
+                <div className="mt-2" key={index}>
+                  <CheckboxCustom
+                    handleChangeCheckbox={handleChangeCheckbox(item.key)}
+                    filterColumns={!filterColumns.includes(item.key)}
+                    title={item.title}
+                  />
+                </div>
               );
             })}
-
-            {/* <div>
-              <label className="checkbox-container">
-                <span className="checkbox-title">date</span>
-                <input
-                  type="checkbox"
-                  onChange={handleChangeCheckbox('date')}
-                  checked={!filterColumns.includes('date')}
-                />
-                <span className="checkmark"></span>
-              </label>
-            </div> */}
-
             {/*-- /form-checkbox -- */}
           </div>
         </div>

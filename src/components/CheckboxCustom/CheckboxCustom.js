@@ -1,6 +1,7 @@
 import React from 'react';
+import './CheckboxCustom.scss';
 
-const CheckboxContainer = ({ handleChangeCheckbox, filterColumns, title }) => {
+const CheckboxCustom = ({ handleChangeCheckbox, filterColumns, title }) => {
   return (
     <div>
       <label className="checkbox-container">
@@ -16,4 +17,4 @@ const CheckboxContainer = ({ handleChangeCheckbox, filterColumns, title }) => {
   );
 };
 
-export default CheckboxContainer;
+export default CheckboxCustom;
