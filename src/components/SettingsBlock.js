@@ -7,7 +7,7 @@ import CheckboxCustom from './../components/CheckboxCustom/CheckboxCustom';
 
 const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
   const [value, setValue] = useState(true);
-  const [showBlock, setShowBlock] = useState(true);
+  const [showBlock, setShowBlock] = useState(false);
   const onChangeShowBlock = () => {
     setShowBlock(!showBlock);
   };
@@ -20,15 +20,16 @@ const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
   };
   return (
     <div className=" position-relative">
+      {/* Button with dropdown */}
       <div
-        className={`icon-settings-block ${showBlock ? 'active-button' : ''}`}
+        className={`button-with-dropdown ${showBlock ? 'active-button' : ''}`}
         onClick={onChangeShowBlock}
       >
         <SettingsIcon fill={`${showBlock ? '#ffffff' : '#607990'}`} />
       </div>
       {showBlock ? (
-        // --DropDown Settings Block --
-        <div className="dropdown-settings-block position-absolute">
+        // --DropDown Block --
+        <div className="dropdown-block position-absolute">
           <div className="buttons-block">
             <button className="settings-button-view">Essentials</button>
             <button className="settings-button-view">Compact view</button>

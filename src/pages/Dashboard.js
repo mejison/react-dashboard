@@ -19,6 +19,7 @@ import { ChartViewIcon, TableViewIcon } from './../components/icons';
 // import RuningString from '../components/RuningString'
 import RuleList from '../components/RuleList';
 import { connect } from 'react-redux';
+import FilterBlock from '../components/FilterBlock';
 
 const cardRuleData = [
   {
@@ -497,8 +498,13 @@ const Dashboard = ({ filterColumns }) => {
                       onChange={(val) => setQuery(val)}
                     />
                   </div>
-                  <div>
-                    <SettingsBlock columnsProducts={columnsProducts} />
+                  <div className="d-flex">
+                    <div>
+                      <SettingsBlock columnsProducts={columnsProducts} />
+                    </div>
+                    <div className="ml-2">
+                      <FilterBlock />
+                    </div>
                   </div>
                 </div>
 

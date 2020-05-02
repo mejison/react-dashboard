@@ -392,7 +392,9 @@ body {
 }
 
 //SettingsBlock
-.icon-settings-block {
+//FilterBlock
+//Button With Dropdown
+.button-with-dropdown {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -403,22 +405,22 @@ body {
   cursor: pointer;
 }
 
-.icon-settings-block.active-button {
+.button-with-dropdown.active-button {
   background-color: #ff7038;
   color: $white;
 }
 
-.icon-settings-block:hover {
+.button-with-dropdown:hover {
   background: $bg-color;
 }
 
-.icon-settings-block.active-button:hover {
+.button-with-dropdown.active-button:hover {
   color: $color-secondary;
   background-color: #ff7038;
 }
 
 //DROPDOWN BLOCK
-.dropdown-settings-block {
+.dropdown-block {
   right: 0;
   z-index: 10;
   background-color: $white;
@@ -446,7 +448,7 @@ body {
   }
 }
 
-//Title section
+//Title section Dashboard
 .title-section {
   font-family: $body-font-family;
   font-size: $card-total-font-size;
