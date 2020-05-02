@@ -373,7 +373,7 @@ body {
   }
 }
 
-//SettingsIcon
+//SettingsBlock
 .icon-wrapper {
   display: flex;
   align-items: center;
@@ -385,13 +385,38 @@ body {
   cursor: pointer;
 }
 
+.icon-wrapper.active-button {
+  background-color: #ff7038;
+  color: $white;
+}
+
 .icon-wrapper:hover {
   background: $bg-color;
 }
 
-//SettingsBlock
-.buttons-block {
-  display: none;
+.icon-wrapper.active-button:hover {
+  color: $color-secondary;
+  background-color: #ff7038;
+}
+
+//DROPDOWN BLOCK
+.dropdown-settings-block {
+  right: 0;
+  background-color: $white;
+  width: 320px;
+  padding: 20px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid $border-color-default;
+
+  .settings-button {
+    width: 100%;
+    min-height: 40px;
+    background-color: $white;
+    border-radius: 6px;
+    border: 1px solid $border-color-button;
+    margin-bottom: 12px;
+  }
 }
 
 //Title section
