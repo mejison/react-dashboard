@@ -1,12 +1,8 @@
-import React, { memo } from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
-const Card = ({title, children, footer, className}) => {
-	return (
-		<div className={cn('card', className)}>
-			{ children }
-		</div>
-	)
-}
+const Card = ({ title, children, footer, className }) => {
+  return <div className={cn('card', className)}>{children}</div>;
+};
 
-export default Card
+export default Card;

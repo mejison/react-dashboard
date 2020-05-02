@@ -12,8 +12,10 @@ import EmptyRules from '../components/EmptyRules';
 import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
-import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
-import Switch from './../components/ToggleSwitch/Switch.js';
+// import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
+import ButtonView from '../components/ButtonView';
+// import { ChartViewIcon, TableViewIcon } from './../components/icons';
+// import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
 import RuleList from '../components/RuleList'
 
@@ -228,9 +230,14 @@ const Dashboard = () => {
     txCategory: '',
   });
   const [startDate, setStartDate] = useState(null);
-  const [value, setValue] = useState(true);
-  const [tab, setTab] = useState(false)
-  const [query, setQuery] = useState('')
+
+  // const [tab, setTab] = useState(false);
+  const [query, setQuery] = useState('');
+  const [show, setShow] = useState(true);
+
+  const changeView = () => {
+    setShow(!show);
+  };
 
   //MAIN TABLE
   const columnsProducts = [
@@ -412,7 +419,7 @@ const Dashboard = () => {
   };
 
   const renderChangeCell = (change) => {
-    const getChange = change > 0 ? 'positive' : (change < 0 ? 'negative' : '');
+    const getChange = change > 0 ? 'positive' : change < 0 ? 'negative' : '';
     switch (getChange) {
       case 'positive':
         return <Badge title={change} level="success" />;
@@ -422,14 +429,48 @@ const Dashboard = () => {
         return <Badge title={change} />;
     }
   };
-  const handleChangeSwitch = val => {
-    setTab(val)
-  }
-  console.log(tab)
+  // const handleChangeSwitch = (val) => {
+  //   setTab(val);
+  // };
+  // console.log(tab);
   return (
     <div className="h-100 container-fluid pt-3">
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
+          <div className="d-flex justify-content-between mb-3">
+            <div>
+              <h4 className="title-section">Attendance pricing Strategy</h4>
+            </div>
+            <div>
+              <div className="change-view-table d-flex">
+                <div>
+                  <ButtonView
+                    title="Chart view"
+                    changeView={changeView}
+                    show={!show}
+                    // icon={
+                    // <ChartViewIcon
+                    // fill={`${!show ? '#ffffff' : '#607990'}`}
+                    // />
+                    // }
+                    // icon={ChartViewIcon}
+                  />
+                </div>
+                <div>
+                  <ButtonView
+                    title="Table view"
+                    changeView={changeView}
+                    show={show}
+                    // icon={
+                    //   <TableViewIcon
+                    //   fill={`${show ? '#ffffff' : '#607990'}`}
+                    //   />
+                    // }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           {/* CARDRULE */}
           <div className="row mb-3">
             {cardRuleData.map((item, i) => {
@@ -457,29 +498,33 @@ const Dashboard = () => {
             })}
           </div>
           {/* MAIN TABLE */}
-          <div>
-            <Card className="h-100">
-              <div className="p-2 d-flex justify-content-between">
-                <div>
-                  <SearchInput value={query} onChange={val => setQuery(val)} />
+          {/* SHOW 'Table view' or 'Chart view'*/}
+          {show ? (
+            <div>
+              <Card className="h-100">
+                <div className="p-2 d-flex justify-content-between">
+                  <div>
+                    <SearchInput
+                      value={query}
+                      onChange={(val) => setQuery(val)}
+                    />
+                  </div>
+                  <div>
+                    <SettingsBlock />
+                  </div>
                 </div>
-                <div>
-                  <SettingsBlock />
-                </div>
-                <div>
-                  <ToggleSwitch
-                    value={value}
-                    onChange={(val) => setValue(val)}
-                  />
-                </div>
-              </div>
 
-              {/* TABLE */}
-              <div>
-                <Table columns={columnsProducts} data={productsData} />
-              </div>
-            </Card>
-          </div>
+                {/* TABLE */}
+                <div>
+                  <Table columns={columnsProducts} data={productsData} />
+                </div>
+              </Card>
+            </div>
+          ) : (
+            <div>
+              <Card>Chart view - Graphics</Card>
+            </div>
+          )}
         </div>
 
         {/* Empty_Rules */}
