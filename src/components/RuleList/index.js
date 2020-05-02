@@ -5,11 +5,16 @@ import BtnMain from '../buttons/BtnMain'
 import { toggleModal } from '../../actions/ui'
 import RuleTitle from '../forms/RuleTitle'
 import './rule_list.scss'
+import { history } from '../../store'
 
 const RuleList = ({dispatch, rules}) => {
 	console.log(rules)
 	const handleAddRule = () => {
-		dispatch(toggleModal(true, 'Title', <RuleTitle />, 'modal-sm'))
+		dispatch(toggleModal(true, 'Create strategy', <RuleTitle />, 'modal-sm')).then(({success}) => {
+			if (success) {
+				history.push('/rule/create')
+			}
+		})
 	}
   return (
     <div className="rule-list-container">
@@ -39,7 +44,7 @@ const RuleList = ({dispatch, rules}) => {
   							</div>
   						</div>
   						<div>
-  							<BtnMain title="Add first rule" className="btn-block" onClick={handleAddRule} />
+  							<BtnMain title="Add first rule" className="btn-block" iconLeft="PlusIcon" onClick={handleAddRule} />
   						</div>
     				</div>
     	}

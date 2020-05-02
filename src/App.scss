@@ -32,6 +32,10 @@ body {
   cursor: pointer;
 }
 
+.rule-layout {
+  height: 100vh;
+}
+
 .header {
   height: $header-height;
   background-color: $input-border-color-focus;
@@ -51,6 +55,23 @@ body {
 
   &__item {
     margin: 0 30px;
+  }
+}
+
+.card-description {
+  border: 1px dashed #607990;
+  border-radius: 6px;
+  color: #607990;
+  font-weight: normal;
+  font-size: 16px;
+  font-family: Lato;
+  padding: 16px;
+  max-width: 280px;
+  .title {
+    font-weight: 600;
+  }
+  .content {
+
   }
 }
 
@@ -223,22 +244,20 @@ body {
 }
 
 .input-wrapper {
-  max-width: 276px;
-  min-width: 154px;
   .form-control {
     background-color: $light;
     border: $input-border;
     font-weight: $body-font-weight;
-    color: $body-color;
+    color: #072C3B;
     height: $input-height;
     &:placeholder {
       color: $secondary;
     }
     &:focus {
       outline: none !important;
-      border-color: $blue;
+      border-color: #093C50;
       box-shadow: none;
-      background-color: $white;
+      background-color: #F7F9FD;
     }
   }
 }

@@ -3,7 +3,6 @@ import cn from 'classnames'
 import * as icons from '../icons'
 
 const TextField = ({value, onChange, type = 'text', className, placeholder, icon, ...rest}) => {
-	// console.log(onFocus)
 	const handleChange = ({target: {value}}) => {
 		if (onChange) {
 			onChange(value)

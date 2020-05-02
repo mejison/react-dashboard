@@ -10,6 +10,7 @@ const BtnMain = ({type = 'button', title, onClick, iconRight, iconLeft, variant 
 		<button
 			type={type}
 			onClick={onClick}
+			disabled={disabled}
 			className={cn(`btn d-inline-flex align-items-center btn-${variant}`, className)}>
 			{ iconLeft ? <IconLeft /> : null }
 			{title ? <span className="mx-1">{title}</span> : null}

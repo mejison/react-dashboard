@@ -1,0 +1,38 @@
+.tabs-container {
+	height: 56px;
+	border: 1px solid #BECDDB;
+	border-radius: 6px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: normal;
+	font-size: 20px;
+	color: #607990;
+	overflow: hidden;
+	.tab-item {
+		height: 100%;
+		&:not(:last-child) {
+			border-right: 1px solid #BECDDB;
+		}
+		.step {
+			border-radius: 50%;
+			border: 1px solid #BECDDB;
+			width: 32px;
+			height: 32px;
+			text-align: center;
+			line-height: 1.6;
+			svg {
+			    margin-bottom: 2px;
+			}
+		}
+		&.active {
+			background: #FF7038;
+			color: #fff;
+			.step {
+				background: rgba(255, 255, 255, 0.3);
+				border-color: transparent;
+			}
+		}
+	}
+}

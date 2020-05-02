@@ -8,7 +8,24 @@
 
 .modal-body {
 	pointer-events: unset;
+	border-radius: 6px;
+	border: 1px solid #D6DCE3;
+	font-size: 16px;
+	.modal-title {
+		font-weight: bold;
+		font-size: 20px;
+		color: #072C3B;
+		margin-bottom: 15px;
+	}
 }
+
+@media (min-width: 576px) {
+	.modal-sm {
+    	max-width: 460px;
+	}
+}
+
+
 
 .custom-modal-overlay {
 	// position: fixed;

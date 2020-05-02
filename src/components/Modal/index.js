@@ -12,10 +12,9 @@ const CustomModal = ({dispatch, show, content, title, className, resolver}) => {
 		resolver(data)
 	}
 	const clearModal = () => {
-		console.log('exited')
+		// console.log('exited')
 		// dispatch(toggleModal())
 	}
-	console.log(show)
 	return (
 		<Modal
 			center
@@ -26,7 +25,7 @@ const CustomModal = ({dispatch, show, content, title, className, resolver}) => {
 				modal: cn('modal-body modal-dialog', className),
 				overlay: 'custom-modal-overlay',
 			}}>
-			{ title && <h3>{title}</h3> }
+			{ title && <h3 className="modal-title">{title}</h3> }
 			{ content && <content.type closeMe={onCloseModal} {...content.props} /> }
     </Modal>
 	)
