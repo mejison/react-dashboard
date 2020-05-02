@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { SettingsIcon } from './icons';
 import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
-import { connect } from 'react-redux'
-import { setAppState } from '../actions/app'
+import { connect } from 'react-redux';
+import { setAppState } from '../actions/app';
+import './CheckboxContainer/CheckboxContainer.scss';
+import CheckboxContainer from './../components/CheckboxContainer/CheckboxContainer';
 
-const SettingsBlock = ({dispatch, filterColumns}) => {
+const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
   const [value, setValue] = useState(true);
   const [showBlock, setShowBlock] = useState(true);
   const onChangeShowBlock = () => {
     setShowBlock(!showBlock);
   };
-  const handleChangeCheckbox = field => ({target: {checked}}) => {
-    console.log(checked, field)
-    const list = !checked ? [...filterColumns, field] : filterColumns.filter(key => key !== field)
-    dispatch(setAppState('filterColumns', list))
-  }
+  const handleChangeCheckbox = (field) => ({ target: { checked } }) => {
+    console.log(checked, field);
+    const list = !checked
+      ? [...filterColumns, field]
+      : filterColumns.filter((key) => key !== field);
+    dispatch(setAppState('filterColumns', list));
+  };
   return (
     <div className="settings-block position-relative">
       <div
@@ -35,62 +39,41 @@ const SettingsBlock = ({dispatch, filterColumns}) => {
             <ToggleSwitch value={value} onChange={(val) => setValue(val)} />
           </div>
           <div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="defaultCheck1"
-              />
-              <label className="form-check-label" htmlFor="defaultCheck1">
-                Default checkbox
-              </label>
-            </div>
+            {/* -- form-checkbox -- */}
 
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                onChange={handleChangeCheckbox('date')}
-                checked={!filterColumns.includes('date')}
-                id="defaultCheck1"
-              />
-              <label className="form-check-label" htmlFor="defaultCheck1">
-                date
-              </label>
-            </div>
+            {columnsProducts.map((item, index) => {
+              return (
+                <CheckboxContainer
+                  key={index}
+                  handleChangeCheckbox={handleChangeCheckbox(item.key)}
+                  filterColumns={!filterColumns.includes(item.key)}
+                  title={item.title}
+                />
+              );
+            })}
 
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="defaultCheck1"
-              />
-              <label className="form-check-label" htmlFor="defaultCheck1">
-                Default checkbox
+            {/* <div>
+              <label className="checkbox-container">
+                <span className="checkbox-title">date</span>
+                <input
+                  type="checkbox"
+                  onChange={handleChangeCheckbox('date')}
+                  checked={!filterColumns.includes('date')}
+                />
+                <span className="checkmark"></span>
               </label>
-            </div>
+            </div> */}
+
+            {/*-- /form-checkbox -- */}
           </div>
         </div>
       ) : null}
-      {/* <div className="dropdown-block position-absolute">
-        <div className="buttons-block">
-          <button>Essentials</button>
-          <button>Compact view</button>
-          <button>Default</button>
-        </div>
-        <div className="d-none">
-          <ToggleSwitch value={value} onChange={(val) => setValue(val)} />
-        </div>
-        <div style={{ display: 'none' }}>Checkboxes</div>
-      </div> */}
     </div>
   );
 };
 
-const mapStateToProps = ({app}) => ({
+const mapStateToProps = ({ app }) => ({
   filterColumns: app.filterColumns,
-})
+});
 
-export default connect(mapStateToProps)(SettingsBlock)
+export default connect(mapStateToProps)(SettingsBlock);

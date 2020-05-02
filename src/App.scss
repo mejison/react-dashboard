@@ -71,7 +71,6 @@ body {
     font-weight: 600;
   }
   .content {
-
   }
 }
 
@@ -248,16 +247,16 @@ body {
     background-color: $light;
     border: $input-border;
     font-weight: $body-font-weight;
-    color: #072C3B;
+    color: #072c3b;
     height: $input-height;
     &:placeholder {
       color: $secondary;
     }
     &:focus {
       outline: none !important;
-      border-color: #093C50;
+      border-color: #093c50;
       box-shadow: none;
-      background-color: #F7F9FD;
+      background-color: #f7f9fd;
     }
   }
 }
@@ -421,6 +420,7 @@ body {
 //DROPDOWN BLOCK
 .dropdown-settings-block {
   right: 0;
+  z-index: 10;
   background-color: $white;
   width: 320px;
   padding: 20px;

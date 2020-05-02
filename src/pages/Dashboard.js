@@ -17,8 +17,8 @@ import ButtonView from '../components/ButtonView';
 import { ChartViewIcon, TableViewIcon } from './../components/icons';
 // import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
-import RuleList from '../components/RuleList'
-import { connect } from 'react-redux'
+import RuleList from '../components/RuleList';
+import { connect } from 'react-redux';
 
 const cardRuleData = [
   {
@@ -222,7 +222,7 @@ const txTypeOptions = [
   { id: 2, title: 'Show 30 days' },
 ];
 
-const Dashboard = ({filterColumns}) => {
+const Dashboard = ({ filterColumns }) => {
   const [form, setForm] = useState({
     dateTransaction: '',
     transactionLimit: '',
@@ -498,13 +498,18 @@ const Dashboard = ({filterColumns}) => {
                     />
                   </div>
                   <div>
-                    <SettingsBlock />
+                    <SettingsBlock columnsProducts={columnsProducts} />
                   </div>
                 </div>
 
                 {/* TABLE */}
                 <div>
-                  <Table columns={columnsProducts.filter(col => !filterColumns.includes(col.key))} data={productsData} />
+                  <Table
+                    columns={columnsProducts.filter(
+                      (col) => !filterColumns.includes(col.key)
+                    )}
+                    data={productsData}
+                  />
                 </div>
               </Card>
             </div>
@@ -737,8 +742,8 @@ const Dashboard = ({filterColumns}) => {
   );
 };
 
-const mapStateToProps = ({app}) => ({
+const mapStateToProps = ({ app }) => ({
   filterColumns: app.filterColumns,
-})
+});
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard);
