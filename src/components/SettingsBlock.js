@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { SettingsIcon } from './icons';
 import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
+import { connect } from 'react-redux'
+import { setAppState } from '../actions/app'
 
-const SettingsBlock = () => {
+const SettingsBlock = ({dispatch, filterColumns}) => {
   const [value, setValue] = useState(true);
   const [showBlock, setShowBlock] = useState(true);
   const onChangeShowBlock = () => {
     setShowBlock(!showBlock);
   };
+  const handleChangeCheckbox = field => ({target: {checked}}) => {
+    console.log(checked, field)
+    const list = !checked ? [...filterColumns, field] : filterColumns.filter(key => key !== field)
+    dispatch(setAppState('filterColumns', list))
+  }
   return (
     <div className="settings-block position-relative">
       <div
@@ -44,11 +51,12 @@ const SettingsBlock = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                onChange={handleChangeCheckbox('date')}
+                checked={!filterColumns.includes('date')}
                 id="defaultCheck1"
               />
               <label className="form-check-label" htmlFor="defaultCheck1">
-                Default checkbox
+                date
               </label>
             </div>
 
@@ -80,4 +88,9 @@ const SettingsBlock = () => {
     </div>
   );
 };
-export default SettingsBlock;
+
+const mapStateToProps = ({app}) => ({
+  filterColumns: app.filterColumns,
+})
+
+export default connect(mapStateToProps)(SettingsBlock)

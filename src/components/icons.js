@@ -432,7 +432,7 @@ export const SettingsIcon = ({ fill }) => {
   );
 };
 
-export const TableViewIcon = ({ fill }) => {
+export const TableViewIcon = ({ fill = '' }) => {
   return (
     <svg
       width="18"
@@ -463,7 +463,7 @@ export const TableViewIcon = ({ fill }) => {
   );
 };
 
-export const ChartViewIcon = ({ fill }) => {
+export const ChartViewIcon = ({ fill = '' }) => {
   return (
     <svg
       width="19"

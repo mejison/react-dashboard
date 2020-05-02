@@ -442,6 +442,18 @@ body {
   padding: 8px 7px;
   min-width: 105px;
   cursor: pointer;
+  svg {
+    path {
+      fill: #607990;
+    }
+  }
+  &.active-button {
+    svg {
+      path {
+        fill: #fff;
+      }
+    }
+  }
   p {
     margin: 0;
   }

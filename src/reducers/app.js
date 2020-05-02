@@ -2,6 +2,7 @@ import * as types from '../actions/types'
 
 const initialState = {
   rules: [],
+  filterColumns: []
 }
 
 const app = (app = initialState, action = {}) => {
