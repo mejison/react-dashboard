@@ -17,8 +17,9 @@ import ButtonView from '../components/ButtonView';
 import { ChartViewIcon, TableViewIcon } from './../components/icons';
 // import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
-import RuleList from '../components/RuleList'
-import { connect } from 'react-redux'
+import RuleList from '../components/RuleList';
+import { connect } from 'react-redux';
+import FilterBlock from '../components/FilterBlock';
 
 const cardRuleData = [
   {
@@ -361,7 +362,7 @@ const Dashboard = ({filterColumns}) => {
                           onChange={(val) => setQuery(val)} />
                       </div>
                       <div>
-                        <SettingsBlock />
+                        <SettingsBlock columnsProducts={columnsProducts} />
                       </div>
                     </div>
                     <div>
@@ -384,8 +385,8 @@ const Dashboard = ({filterColumns}) => {
   );
 };
 
-const mapStateToProps = ({app}) => ({
+const mapStateToProps = ({ app }) => ({
   filterColumns: app.filterColumns,
-})
+});
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps)(Dashboard);
