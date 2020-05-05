@@ -40,6 +40,7 @@ body {
   height: $header-height;
   background-color: $input-border-color-focus;
   color: $color-secondary;
+  letter-spacing: 0.02em;
   font-size: $header-font-size;
   border-bottom: 1px solid #eaf1f9;
   // .divider {
@@ -57,11 +58,14 @@ body {
   &__item {
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    justify-content: center;
+    min-width: 112px;
+    padding: 0 10px;
   }
 
   .link {
     text-decoration-line: none;
+    font-weight: $body-font-weight;
   }
 }
 
