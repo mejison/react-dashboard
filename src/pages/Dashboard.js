@@ -20,6 +20,7 @@ import { ChartViewIcon, TableViewIcon } from './../components/icons';
 import RuleList from '../components/RuleList';
 import { connect } from 'react-redux';
 import FilterBlock from '../components/FilterBlock';
+import { LineChart, Line, Legend, Tooltip, ResponsiveContainer, XAxis, YAxis } from 'recharts'
 
 const cardRuleData = [
   {
@@ -47,16 +48,6 @@ const cardRuleData = [
     success: true,
   },
 ];
-
-const customer = {
-  id: '023AD50',
-  email: 'johnsmith@xyz.com',
-  phone: '+444345672',
-  extId: 'RRDT3345S7',
-  name: 'John Smith',
-  kyc: 'GQDI4455W',
-  status: 'Active',
-};
 
 //MAIN TABLE
 const productsData = [
@@ -102,109 +93,44 @@ const productsData = [
   },
 ];
 
-const accountsData = [
+const graphicData = [
   {
-    acc: '012456',
-    accType: 'Savings',
-    institution: 'Sterling',
-    status: 'Active',
-    balance: 300,
+    name: 'Jan', line1: 4000, line2: 2400, line3: 2400,
   },
   {
-    acc: '012456',
-    accType: 'Savings',
-    institution: 'Sterling',
-    status: 'Inactive',
-    balance: 387769000.0,
+    name: 'Fab', line1: 3000, line2: 1398, line3: 2210,
   },
   {
-    acc: '012456',
-    accType: 'Savings',
-    institution: 'Sterling',
-    status: 'Suspended',
-    balance: -300,
-  },
-];
-
-const transactionsData = [
-  {
-    date: '01/12/19',
-    instrument: '442561701',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing ...',
-    category: 'Purchases',
-    amount: 34567.0,
-    balance: 482.0,
+    name: 'Mar', line1: 2000, line2: 9800, line3: 2290,
   },
   {
-    date: '01/12/19',
-    instrument: '442561701',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing ...',
-    category: 'Reversals',
-    amount: 34567.0,
-    balance: -34567.0,
-  },
-];
-
-const notesData = [
-  {
-    date: '12/01/20',
-    type: 'ABC',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus neque tellus mauris eget felis ...',
-    status: 'Active',
+    name: 'Apr', line1: 2780, line2: 3908, line3: 2000,
   },
   {
-    date: '12/01/20',
-    type: 'XYZ',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus neque tellus mauris eget felis ...',
-    status: 'Active',
-  },
-];
-
-const devicesData = [
-  {
-    type: 'Smartphone',
-    deviceId: '88925',
-    regDate: '10/01/20',
-    accessDate: '10/01/20',
-    status: 'Active',
+    name: 'May', line1: 1890, line2: 4800, line3: 2181,
   },
   {
-    type: 'Smartphone',
-    deviceId: '88925',
-    regDate: '10/01/20',
-    accessDate: '10/01/20',
-    status: 'Active',
-  },
-];
-
-const usersData = [
-  {
-    name: 'John Smith',
-    type: 'XYZ',
-    role: 'Officer',
-    status: 'Active',
+    name: 'Jun', line1: 2390, line2: 3800, line3: 2500,
   },
   {
-    name: 'Livia Lipshutz',
-    type: 'XYZ',
-    role: 'CEO',
-    status: 'Active',
+    name: 'Jul', line1: 3490, line2: 4300, line3: 2100,
   },
   {
-    name: 'Desirae Vetrovs',
-    type: 'XYZ',
-    role: 'Officer',
-    status: 'Active',
+    name: 'Aug', line1: 3490, line2: 4300, line3: 2100,
   },
   {
-    name: 'Roger Lipshutz',
-    type: 'XYZ',
-    role: 'CEO',
-    status: 'Active',
+    name: 'Sep', line1: 3490, line2: 4300, line3: 2100,
   },
-];
+  {
+    name: 'Oct', line1: 3490, line2: 4300, line3: 2100,
+  },
+  {
+    name: 'Nov', line1: 3490, line2: 4300, line3: 2100,
+  },
+  {
+    name: 'Dec', line1: 3490, line2: 4300, line3: 2100,
+  }
+]
 
 const Dashboard = ({filterColumns}) => {
   const [form, setForm] = useState({
@@ -371,7 +297,23 @@ const Dashboard = ({filterColumns}) => {
                   </Card>
                 </div>
               : <div>
-                  <Card>Chart view - Graphics</Card>
+                  <div className="mb-3">
+                    <Card>Chart view - Graphics</Card>
+                  </div>
+                  <div className="mb-3">
+                    <Card>
+                      <ResponsiveContainer width={'100%'} height={300}>
+                        <LineChart data={graphicData}>
+                          <Line type="monotone" dataKey="line1" stroke="#FF7038" isAnimationActive={false} dot={{ stroke: '#FF7038', fill: '#FF7038' }} />
+                          <Line type="monotone" dataKey="line2" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
+                          <Line type="monotone" dataKey="line3" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
+                          <YAxis axisLine={{strokeWidth: 1}} label="Demand" />
+                          <YAxis label="ATP" />
+                          <XAxis dataKey="name" />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </Card>
+                  </div>
                 </div>
           }
         </div>
