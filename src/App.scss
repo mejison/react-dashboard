@@ -33,7 +33,12 @@ body {
 }
 
 .rule-layout {
-  height: 100vh;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
 }
 
 .header {
@@ -129,8 +134,8 @@ body {
 .custom-calendar {
   &.react-datepicker {
     font-family: $body-font-family;
-    border: none;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.12);
+    border: 1px solid #BECDDB;
+    box-shadow: 8px 8px 24px rgba(96, 121, 144, 0.1);
     color: $body-color;
   }
   .react-datepicker__triangle {
@@ -140,22 +145,25 @@ body {
     .calendar-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 16px 0px 12px 0px;
+      justify-content: space-around;
+      padding: 5px 0px 0px 0px;
       color: $body-color;
       .title {
+        font-family: Lato;
         margin-left: 43px;
         margin-right: 43px;
-        font-weight: $font-weight-bold;
+        font-size: 18px;
+        font-weight: 600;
         color: $headline-color;
       }
     }
-    background-color: $light;
+    background-color: #fff;
     font-family: $body-font-family;
-    border-color: $gray-300;
+    border-color: transparent;
     padding-top: 0px;
   }
   .react-datepicker__day-names {
+    display: none;
     font-weight: $font-weight-bold;
     .react-datepicker__day-name {
       color: $headline-color;
@@ -171,6 +179,7 @@ body {
     }
     &.react-datepicker__day--outside-month {
       color: $secondary;
+      visibility: hidden;
     }
   }
 }

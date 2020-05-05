@@ -3,37 +3,38 @@ import TextField from '../inputs/TextField'
 import CardDescription from '../CardDescription'
 import DatePicker from '../inputs/DatePicker'
 
-const First = (props) => {
-	const [date, setDate] = useState({start: new Date(), end: new Date()})
+const First = () => {
+	const [dates, setDate] = useState({start: new Date(), end: new Date()})
 	const handleChangeDate = key => date => {
-		setDate({...date, [key]: date})
+    console.log(key, date)
+		setDate({...dates, [key]: date})
 	}
+  console.log(dates)
   return (
     <div className="container-fluid">
     	<div className="row justify-content-center">
     		<div className="col">
     		</div>
     		<div className="col-5">
-    			<div>Strategy name</div>
+    			<div className="title">Strategy name</div>
     			<div className="form-group">
-    				
     				<TextField />
     			</div>
-    			<div>Time frame</div>
-    			<div>
-	    			<div className="form-group">
-	    				<label>Start date</label>
+    			<div className="title">Time frame</div>
+    			<div className="d-flex">
+	    			<div className="form-group w-100 mr-3">
+	    				<div>Start date</div>
 	    				<DatePicker
                 onChange={handleChangeDate('start')}
-                selected={date.start}
+                selected={dates.start}
                 z-placeholder="Start date"
               />
 	    			</div>
-	    			<div className="form-group">
-	    				<label>End date</label>
+	    			<div className="form-group w-100">
+	    				<div>End date</div>
 	    				<DatePicker
                 onChange={handleChangeDate('end')}
-                selected={date.end}
+                selected={dates.end}
                 z-placeholder="End date"
               />
 	    			</div>

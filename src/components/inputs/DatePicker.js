@@ -27,7 +27,7 @@ const renderHeader = ({increaseMonth, decreaseMonth, date}) => {
 			<div className="pointer" onClick={decreaseMonth}>
 				<ChevronLeft />
 			</div>
-			<div className="title">{moment(date).format('MMMM YYYY')}</div>
+			<div className="title">{moment(date).format('MMMM')}</div>
 			<div className="pointer" onClick={increaseMonth}>
 				<ChevronRight />
 			</div>
@@ -39,6 +39,7 @@ const CustomDatePicker = props => {
 	return (
 		<DatePicker
 			{...props}
+			popperPlacement="bottom-end"
 			calendarClassName="custom-calendar"
 			renderCustomHeader={renderHeader}
 			dayClassName={getDayStyle}

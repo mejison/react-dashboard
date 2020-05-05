@@ -1,10 +1,15 @@
 .rule-page {
+	min-height: 100vh;
 	.rule-header {
 		height: 138px;
 		border-bottom: 1px solid #EAF1F9;
 	}
 	.rule-content {
-
+		.title {
+			font-weight: 500;
+			font-size: 28px;
+			color: #072C3B;
+		}
 	}
 	.rule-footer {
 

@@ -10,8 +10,7 @@ const SettingsBlock = ({dispatch, filterColumns}) => {
   const onChangeShowBlock = () => {
     setShowBlock(!showBlock);
   };
-  const handleChangeCheckbox = field => ({target: {checked}}) => {
-    console.log(checked, field)
+  const handleChangeCheckbox = field => ({target: {checked} }) => {
     const list = !checked ? [...filterColumns, field] : filterColumns.filter(key => key !== field)
     dispatch(setAppState('filterColumns', list))
   }
@@ -56,7 +55,7 @@ const SettingsBlock = ({dispatch, filterColumns}) => {
                 id="defaultCheck1"
               />
               <label className="form-check-label" htmlFor="defaultCheck1">
-                date
+                Date
               </label>
             </div>
 
