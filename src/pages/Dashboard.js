@@ -205,23 +205,6 @@ const usersData = [
   },
 ];
 
-const dateTransactionOptions = [
-  { id: 1, title: '24.02.2020' },
-  { id: 2, title: '19.01.2020' },
-];
-const transactionLimitOptions = [
-  { id: 1, title: 'Show 10 days' },
-  { id: 2, title: 'Show 30 days' },
-];
-const instrumentOptions = [
-  { id: 1, title: 'Show 10 days' },
-  { id: 2, title: 'Show 30 days' },
-];
-const txTypeOptions = [
-  { id: 1, title: 'Show 10 days' },
-  { id: 2, title: 'Show 30 days' },
-];
-
 const Dashboard = ({filterColumns}) => {
   const [form, setForm] = useState({
     dateTransaction: '',
@@ -277,119 +260,6 @@ const Dashboard = ({filterColumns}) => {
       key: 'baserevenue',
     },
   ];
-  const columnsAccounts = [
-    {
-      title: 'Acc #',
-      key: 'acc',
-    },
-    {
-      title: 'Acc type',
-      key: 'accType',
-    },
-    {
-      title: 'Institution name',
-      key: 'institution',
-    },
-    {
-      title: 'Status',
-      key: 'status',
-      cell: (row) => renderStatusCell(row.status),
-    },
-    {
-      title: 'Balance',
-      key: 'balance',
-      cell: (row) => renderBalanceCell(row.balance),
-    },
-  ];
-  const columnsTransaction = [
-    {
-      title: 'Date',
-      key: 'date',
-    },
-    {
-      title: 'Instrumen/Account',
-      key: 'instrument',
-    },
-    {
-      title: 'Transaction Description',
-      key: 'description',
-    },
-    {
-      title: 'Transaction Category',
-      key: 'category',
-    },
-    {
-      title: 'Amount',
-      key: 'amount',
-      cell: (row) => renderBalanceCell(row.balance),
-    },
-    {
-      title: 'Balance',
-      key: 'balance',
-      cell: (row) => renderBalanceCell(row.balance),
-    },
-  ];
-  const columnsNotes = [
-    {
-      title: 'Date',
-      key: 'date',
-    },
-    {
-      title: 'Note type',
-      key: 'type',
-    },
-    {
-      title: 'Note Description',
-      key: 'description',
-    },
-    {
-      title: 'Status',
-      key: 'status',
-      cell: (row) => renderStatusCell(row.status),
-    },
-  ];
-  const columnsDevices = [
-    {
-      title: 'Device type',
-      key: 'type',
-    },
-    {
-      title: 'Device ID',
-      key: 'deviceId',
-    },
-    {
-      title: 'Reg Date',
-      key: 'regDate',
-    },
-    {
-      title: 'Last Access Date',
-      key: 'accessDate',
-    },
-    {
-      title: 'Status',
-      key: 'status',
-      cell: (row) => renderStatusCell(row.status),
-    },
-  ];
-  const columnsUsers = [
-    {
-      title: 'Name',
-      key: 'name',
-    },
-    {
-      title: 'Type',
-      key: 'type',
-    },
-    {
-      title: 'Role',
-      key: 'role',
-    },
-    {
-      title: 'Status',
-      key: 'status',
-      cell: (row) => renderStatusCell(row.status),
-    },
-  ];
   const handleChange = (field) => (value) => {
     setForm({ ...form, [field]: value });
   };
@@ -426,10 +296,6 @@ const Dashboard = ({filterColumns}) => {
         return <Badge title={change} />;
     }
   };
-  // const handleChangeSwitch = (val) => {
-  //   setTab(val);
-  // };
-  // console.log(tab);
   return (
     <div className="h-100 container-fluid pt-3">
       <div className="row">
@@ -459,7 +325,6 @@ const Dashboard = ({filterColumns}) => {
               </div>
             </div>
           </div>
-          {/* CARDRULE */}
           <div className="row mb-3">
             {cardRuleData.map((item, i) => {
               const total =
@@ -485,251 +350,33 @@ const Dashboard = ({filterColumns}) => {
               );
             })}
           </div>
-          {/* MAIN TABLE */}
-          {/* SHOW 'Table view' or 'Chart view'*/}
-          {show ? (
-            <div>
-              <Card className="h-100">
-                <div className="p-2 d-flex justify-content-between">
-                  <div>
-                    <SearchInput
-                      value={query}
-                      onChange={(val) => setQuery(val)}
-                    />
-                  </div>
-                  <div>
-                    <SettingsBlock />
-                  </div>
+          {
+            show
+              ? <div>
+                  <Card className="h-100">
+                    <div className="p-2 d-flex justify-content-between">
+                      <div>
+                        <SearchInput
+                          value={query}
+                          onChange={(val) => setQuery(val)} />
+                      </div>
+                      <div>
+                        <SettingsBlock />
+                      </div>
+                    </div>
+                    <div>
+                      <Table columns={columnsProducts.filter(col => !filterColumns.includes(col.key))} data={productsData} />
+                    </div>
+                  </Card>
                 </div>
-
-                {/* TABLE */}
-                <div>
-                  <Table columns={columnsProducts.filter(col => !filterColumns.includes(col.key))} data={productsData} />
+              : <div>
+                  <Card>Chart view - Graphics</Card>
                 </div>
-              </Card>
-            </div>
-          ) : (
-            <div>
-              <Card>Chart view - Graphics</Card>
-            </div>
-          )}
+          }
         </div>
-
-        {/* Empty_Rules */}
         <div className="col-12 col-sm-6 col-lg-3 mb-3">
           <Card>
             <RuleList />
-          </Card>
-        </div>
-
-        {/*===============OLD CODE ================== */}
-      </div>
-      <div className="row">
-        <div className="col-12 col-sm-6 col-lg-4 mb-3">
-          <Card>
-            <h4 className="card-title">Customer Info</h4>
-            <div className="card-body font-weight-bold">
-              <div className="row mb-3">
-                <div className="col-6 text-secondary">Name</div>
-                <div className="col-6">{customer.name}</div>
-              </div>
-              <div className="row  mb-3">
-                <div className="col-6 text-secondary">Status</div>
-                <div className="col-6">
-                  <Badge title={customer.status} />
-                </div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-6 text-secondary">Email ID</div>
-                <div className="col-6">{customer.email}</div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-6 text-secondary">MobileNo.</div>
-                <div className="col-6">{customer.phone}</div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-6 text-secondary">External Unique ID</div>
-                <div className="col-6">{customer.extId}</div>
-              </div>
-              <div className="row mb-3">
-                <div className="col-6 text-secondary">Qolo Cust ID</div>
-                <div className="col-6">{customer.id}</div>
-              </div>
-              <div className="row">
-                <div className="col-6 text-secondary">KYC</div>
-                <div className="col-6">{customer.kyc}</div>
-              </div>
-            </div>
-            <div className="card-footer">
-              <div className="text-center">
-                <Link title="More info" icon="ChevronRight" />
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        <div className="col-12 col-sm-6 col-lg-8 mb-3">
-          <Card className="h-100">
-            <h4 className="card-title">Customer Accounts</h4>
-            <div>
-              <Table columns={columnsAccounts} data={accountsData} />
-            </div>
-          </Card>
-        </div>
-        <div className="col-12 mb-3">
-          <Card>
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <h4 className="card-title">Aggregated Transactions</h4>
-              </div>
-              <TextField
-                placeholder="Search"
-                icon="SearchIcon"
-                className="mr-3"
-              />
-            </div>
-            <div className="overflow-hidden" style={{ maxWidth: '100vw' }}>
-              <div className="d-flex align-items-center px-3 mb-3 overflow-auto">
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'Enter date' },
-                      ...dateTransactionOptions,
-                    ]}
-                    onChange={handleChange('dateTransaction')}
-                    value={form.dateTransaction}
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'Choose limit' },
-                      ...transactionLimitOptions,
-                    ]}
-                    onChange={handleChange('transactionLimit')}
-                    value={form.transactionLimit}
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'Instrument Acc' },
-                      ...instrumentOptions,
-                    ]}
-                    onChange={handleChange('instrumentAcc')}
-                    value={form.instrumentAcc}
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'Tx Category' },
-                      ...txTypeOptions,
-                    ]}
-                    onChange={handleChange('txCategory')}
-                    value={form.txCategory}
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'Tx Type' },
-                      ...transactionLimitOptions,
-                    ]}
-                    onChange={handleChange('txType')}
-                    value={form.txType}
-                  />
-                </div>
-                <div className="ml-auto d-flex align-items-center">
-                  <div className="mr-1">
-                    <TextField placeholder="Amount from" />
-                  </div>
-                  -
-                  <div className="ml-1">
-                    <TextField placeholder="To" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mb-3">
-              <Table columns={columnsTransaction} data={transactionsData} />
-              <div className="px-3 d-none d-md-block">
-                <Pagination currentPage={1} totalPages={5} />
-              </div>
-            </div>
-          </Card>
-        </div>
-        <div className="col-12 mb-3">
-          <Card>
-            <h4 className="card-title">Notes and Alerts</h4>
-            <div className="overflow-hidden" style={{ maxWidth: '100vw' }}>
-              <div className="d-flex align-items-center px-3 mb-3 overflow-auto">
-                <div className="mr-1">
-                  <DatePicker
-                    onChange={handleChangeDate}
-                    selected={startDate}
-                    z-placeholder="Start date"
-                  />
-                </div>
-                -
-                <div className="ml-1 mr-3">
-                  <DatePicker
-                    onChange={handleChangeDate}
-                    selected={startDate}
-                    z-placeholder="End date"
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'None Type' },
-                      ...transactionLimitOptions,
-                    ]}
-                    onChange={handleChange('txType')}
-                    value={form.txType}
-                  />
-                </div>
-                <div className="mr-3">
-                  <SelectField
-                    options={[
-                      { id: '', title: 'View' },
-                      ...transactionLimitOptions,
-                    ]}
-                    onChange={handleChange('txType')}
-                    value={form.txType}
-                  />
-                </div>
-                <TextField
-                  placeholder="Search"
-                  icon="SearchIcon"
-                  className="ml-auto"
-                />
-              </div>
-            </div>
-            <div>
-              <Table columns={columnsNotes} data={notesData} />
-            </div>
-            <div className="card-footer">
-              <div className="text-center">
-                <Link title="Add new" icon="PlusIcon" />
-              </div>
-            </div>
-          </Card>
-        </div>
-        <div className="col-12 col-md-6 mb-3">
-          <Card className="h-100">
-            <h4 className="card-title">Devices</h4>
-            <div>
-              <Table columns={columnsDevices} data={devicesData} />
-            </div>
-          </Card>
-        </div>
-        <div className="col-12 col-md-6 mb-3">
-          <Card className="h-100">
-            <h4 className="card-title">Associated Users</h4>
-            <div>
-              <Table columns={columnsUsers} data={usersData} />
-            </div>
           </Card>
         </div>
       </div>
