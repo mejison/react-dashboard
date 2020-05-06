@@ -12,11 +12,18 @@ const First = () => {
   console.log(dates)
   return (
     <div className="container-fluid">
+			<div className="row justify-content-center">
+    		<div className="col">
+    		</div>
+    		<div className="col-5">
+    			<div className="title pb-3">Strategy name</div>
+				</div>
+				<div className="col"></div>
+			</div>
     	<div className="row justify-content-center">
     		<div className="col">
     		</div>
     		<div className="col-5">
-    			<div className="title">Strategy name</div>
     			<div className="form-group">
     				<TextField />
     			</div>

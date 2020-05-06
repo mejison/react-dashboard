@@ -75,6 +75,8 @@ body {
 
   .title {
     font-weight: 600;
+    font-size: 16px !important;
+    margin-bottom: 12px;
   }
 
   .content {
@@ -947,4 +949,23 @@ body {
 
 .rule-content {
   padding-bottom: 200px; // height footer
+}
+
+.header__item {
+  padding: 21px 20px;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }    
+
+  &.active {
+    background: #FF7038;  
+    a {      
+      div {
+        color: #fff !important;
+      }
+    }
+  }
 }
