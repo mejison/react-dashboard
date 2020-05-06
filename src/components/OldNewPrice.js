@@ -1,6 +1,9 @@
 import React from 'react';
+import * as icons from './icons';
 
 const OldNewPrice = ({oldPrice, newPrice}) => {  
+  const ArrowRightIcon = icons.ArrowRightIcon
+
   return (
     <div className="short-price">
       <div className="price old">
@@ -10,6 +13,10 @@ const OldNewPrice = ({oldPrice, newPrice}) => {
         <div>
           { oldPrice } €
         </div>                
+      </div>
+      
+      <div className="separator">
+        <ArrowRightIcon fill="#072C3B" />
       </div>
       
       <div className="price new">

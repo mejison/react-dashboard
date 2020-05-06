@@ -12,6 +12,8 @@
 	overflow: hidden;
 	.tab-item {
 		height: 100%;
+		cursor: pointer;
+		user-select: none;
 		&:not(:last-child) {
 			border-right: 1px solid #BECDDB;
 		}

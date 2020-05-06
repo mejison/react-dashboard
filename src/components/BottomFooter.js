@@ -1,7 +1,12 @@
 import React from 'react';
 // import Timer from "./Timer";
 import Avatar from './Avatar';
+import * as icons from './icons'
+
 const BottomFooter = ({  }) => {  
+  const ArrowUpIcon = icons.ArrowUpIcon
+  const ArrowDownIcon = icons.ArrowDownIcon
+
   return (
     <div className="bottom-footer">
       <div className="container-fluid">
@@ -16,6 +21,7 @@ const BottomFooter = ({  }) => {
                   Total revenue
                 </div>
                 <div className="rate up">
+                  <ArrowUpIcon fill="#00C165" />
                   12 %
                 </div>
                 <div className="price">
@@ -27,6 +33,7 @@ const BottomFooter = ({  }) => {
                   Total Tickets
                 </div>
                 <div className="rate down">
+                  <ArrowDownIcon fill="#F64D4D" />
                   2 %
                 </div>
                 <div className="price">
@@ -38,6 +45,7 @@ const BottomFooter = ({  }) => {
                   Overall ATP
                 </div>
                 <div className="rate up">
+                <ArrowUpIcon fill="#00C165" />
                   2 %
                 </div>
                 <div className="price">

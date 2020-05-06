@@ -394,6 +394,21 @@ export const ArrowUpIcon = ({ fill }) => {
   );
 };
 
+export const ArrowRightIcon = ({ fill }) => {
+  return (
+    <svg
+      width="7"
+      height="9"
+      viewBox="0 0 7 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >      
+      <path d="M6.78828 5.10929C7.07057 4.91009 7.07057 4.49144 6.78828 4.29223L1.4055 0.493873C1.07428 0.260151 0.617218 0.497027 0.617218 0.902402L0.617218 8.49912C0.617218 8.9045 1.07428 9.14138 1.4055 8.90765L6.78828 5.10929Z" fill={fill}/>
+    </svg>
+  );
+};
+
+
 export const ArrowDownIcon = ({ fill }) => {
   return (
     <svg

@@ -526,10 +526,14 @@ body {
     font-family: Lato;
     
     .score {
-      padding: 50px 80px;      
+      padding: 26px 80px;
       font-style: normal;
       font-weight: normal;
       position: relative;
+
+      &:last-child {
+        padding-right: 0;
+      }
 
       &:not(:last-child):after {
         content: '';
@@ -564,24 +568,11 @@ body {
         }
 
         &.up {
-          color: #00C165;
-          
-          &:before {
-            border: 6px solid transparent;
-            border-bottom-color: #00C165;
-          }
+          color: #00C165;          
         }
 
-
         &.down {
-          color: #F64D4D;
-                    
-          &:before {
-            border: 6px solid transparent;
-            border-top-color: #F64D4D;
-            top: unset;
-            bottom: -3px;
-          }
+          color: #F64D4D;           
         }
       }
 
@@ -719,11 +710,12 @@ body {
       .accordion-body-left {
         position: relative;
         padding-right: 85px;
+        padding-top: 30px;
 
         &:after {
           position: absolute;
           content: '';
-          height: 82px;
+          height: 182px;
           right: 0;
           top: 50%;
           transform: translateY(-50%);
@@ -748,6 +740,7 @@ body {
     .accordion-head {
       display: flex;
       align-items: center;
+      user-select: none;
       width: 100%;      
       cursor: pointer;
 
@@ -775,6 +768,10 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-left: auto;
+
+  .separator {
+    margin: 0 20px;
+  }
   
   .price {
     font-family: Lato;          
@@ -782,10 +779,6 @@ body {
     text-transform: capitalize;
     font-size: 16px;
     font-weight: normal;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
 
     .accorion-title {
       color: #607990;
@@ -851,8 +844,9 @@ body {
   }
 }
 
+
 .price-slider {
-  padding: 35px 0;
+  padding: 50px 0;
 
   .slider {
     width: 100%;
@@ -895,4 +889,62 @@ body {
       transform: translateY(16px);
     }
   }
+}
+
+.graph-overall {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;  
+  display: flex;
+  align-items: center;
+  color: #072C3B;
+}
+
+.graph-overall {
+  display: flex;
+  justify-content: space-evenly;  
+}
+
+.graph-head {
+  display: flex;
+  justify-content: space-evenly;  
+  font-family: Lato;
+  font-size: 14px;
+  color: #072C3B;
+}
+
+.demand-chart {
+  position: relative;
+
+  .vertical-head-left,
+  .vertical-head-right {
+    position: absolute;
+    top: 45%;    
+    font-family: Lato;
+    font-size: 14px;
+    color: #072C3B;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .vertical-head-left {
+    left: 5px;
+  }
+
+  .vertical-head-right {
+    right: -10px;
+  }
+
+  .vertical-head {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);      
+  }
+}
+
+.rule-content {
+  padding-bottom: 200px; // height footer
 }

@@ -18,7 +18,14 @@ const ruleOptions = [
 ]
 
 const RuleEdit = ({match: {params}, rule}) => {
-	const [step, setStep] = useState(3)
+	const [step, setStep] = useState(1)
+
+	const handleChangeStep = () => {
+		if (step != 3) {
+			setStep(step + 1)
+		}
+	}
+
   return (
     <div className="rule-page d-flex flex-column h-100 bg-white">
     	<div className="rule-header d-flex align-items-center">
@@ -31,7 +38,7 @@ const RuleEdit = ({match: {params}, rule}) => {
 		    			<Tabs options={ruleOptions} current={step} onClick={val => setStep(val)} />
 		    		</div>
 		    		<div className="col text-right">
-		    			<BtnMain title="Continue" variant="standart" />
+		    			<BtnMain title={step != 3 ? 'Continue' : 'Finish'} variant="standart" onClick={handleChangeStep} />
 		    		</div>
 	    		</div>
     		</div>
