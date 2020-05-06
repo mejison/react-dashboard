@@ -18,7 +18,7 @@ const ruleOptions = [
 ]
 
 const RuleEdit = ({match: {params}, rule}) => {
-	const [step, setStep] = useState(1)
+	const [step, setStep] = useState(3)
   return (
     <div className="rule-page d-flex flex-column h-100 bg-white">
     	<div className="rule-header d-flex align-items-center">

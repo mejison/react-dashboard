@@ -3,10 +3,7 @@ import React from 'react';
 const ButtonView = ({ changeView, show, title, icon: Icon }) => {
   return (
     <div
-      className={`button-wrapper d-flex justify-content-between align-items-center ${
-        show ? 'active-button' : ''
-      }
-      `}
+      className={`button-wrapper d-flex justify-content-between align-items-center ${ show ? 'active-button' : ''}`}
       onClick={!show ? changeView : null}
     >
       <div>
