@@ -42,9 +42,10 @@ const Header = ({ path }) => {
             <div
               key={i}
               className={cn('header__item text-capitalize', { active })}
+              style={{ backgroundColor: `${active ? '#FF7038' : '#093C50'}` }}
             >
-              <Link to={nav.url}>
-                <div style={{ color: `${active ? '#FF6123' : '#607990'}` }}>
+              <Link to={nav.url} className="link">
+                <div style={{ color: `${active ? '#FFFFFF' : '#D6DCE3'}` }}>
                   {nav.title}
                 </div>
               </Link>

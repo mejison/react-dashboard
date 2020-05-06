@@ -45,6 +45,7 @@ body {
   height: $header-height;
   background-color: $input-border-color-focus;
   color: $color-secondary;
+  letter-spacing: 0.02em;
   font-size: $header-font-size;
   border-bottom: 1px solid #eaf1f9;
   // .divider {
@@ -56,10 +57,20 @@ body {
 
   &__nav {
     display: flex;
+    height: 100%;
   }
 
   &__item {
-    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 112px;
+    padding: 0 10px;
+  }
+
+  .link {
+    text-decoration-line: none;
+    font-weight: $body-font-weight;
   }
 }
 
@@ -80,7 +91,6 @@ body {
   }
 
   .content {
-
   }
 }
 
@@ -261,16 +271,16 @@ body {
     background-color: $light;
     border: $input-border;
     font-weight: $body-font-weight;
-    color: #072C3B;
+    color: #072c3b;
     height: $input-height;
     &:placeholder {
       color: $secondary;
     }
     &:focus {
       outline: none !important;
-      border-color: #093C50;
+      border-color: #093c50;
       box-shadow: none;
-      background-color: #F7F9FD;
+      background-color: #f7f9fd;
     }
   }
 }
@@ -406,7 +416,9 @@ body {
 }
 
 //SettingsBlock
-.icon-wrapper {
+//FilterBlock
+//Button With Dropdown
+.button-with-dropdown {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -417,31 +429,35 @@ body {
   cursor: pointer;
 }
 
-.icon-wrapper.active-button {
+.button-with-dropdown.active-button {
   background-color: #ff7038;
   color: $white;
 }
 
-.icon-wrapper:hover {
+.button-with-dropdown:hover {
   background: $bg-color;
 }
 
-.icon-wrapper.active-button:hover {
+.button-with-dropdown.active-button:hover {
   color: $color-secondary;
   background-color: #ff7038;
 }
 
 //DROPDOWN BLOCK
-.dropdown-settings-block {
+.dropdown-block {
   right: 0;
+  z-index: 10;
   background-color: $white;
   width: 320px;
   padding: 20px;
   margin-top: 8px;
   border-radius: 6px;
   border: 1px solid $border-color-default;
+  font-family: $card-font-family;
+  font-weight: normal;
+  color: $color-main;
 
-  .settings-button {
+  .settings-button-view {
     width: 100%;
     min-height: 40px;
     background-color: $white;
@@ -449,9 +465,14 @@ body {
     border: 1px solid $border-color-button;
     margin-bottom: 12px;
   }
+
+  .title-toggleSwitch {
+    font-size: 16px;
+    font-weight: $body-font-weight;
+  }
 }
 
-//Title section
+//Title section Dashboard
 .title-section {
   font-family: $body-font-family;
   font-size: $card-total-font-size;
