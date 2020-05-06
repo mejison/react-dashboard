@@ -699,7 +699,6 @@ body {
     box-shadow: 0px 4px 4px rgba(96, 121, 144, 0.1);
     border-radius: 6px;
     padding: 14px 27px;
-    cursor: pointer;
     margin-bottom: 16px;
     flex-direction: column;   
     transition: all 0.15s ease-out;
@@ -719,6 +718,7 @@ body {
 
       .accordion-body-left {
         position: relative;
+        padding-right: 85px;
 
         &:after {
           position: absolute;
@@ -732,7 +732,7 @@ body {
       }
 
       .accordion-body-right {
-        margin-left: 15px;
+        margin-left: 85px;
       }
 
     }
@@ -748,7 +748,8 @@ body {
     .accordion-head {
       display: flex;
       align-items: center;
-      width: 100%;
+      width: 100%;      
+      cursor: pointer;
 
       .accordion-action {
         margin-right: 20px;
@@ -791,10 +792,107 @@ body {
       font-weight: normal;
     }
 
-    &.old {}
-
     &.new {
       font-weight: 900;
     }
   }        
+}
+
+.range {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.percent-counter {
+  width: 142px;
+  height: 48px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #D6DCE3;
+  border-radius: 4px;
+  display: flex;
+
+  .input-wrap {
+    height: 100%;
+    width: 100%;
+
+    input {
+      border: none;
+      height: 100%;
+      width: 100%;
+      outline: none;
+      padding-left: 10px;
+      color: #072C3B;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .action {
+    width: 56px;
+    height: 100%;
+    background: #F7F9FD;
+    border-left: 1px solid #D6DCE3;
+    user-select: none;
+    cursor: pointer;
+
+    .arrow-up,
+    .arrow-down {
+      text-align: center;      
+    }
+
+    .arrow-up {
+      border-bottom: 1px solid #D6DCE3;
+      transform: translateY(1px);
+    }
+  }
+}
+
+.price-slider {
+  padding: 35px 0;
+
+  .slider {
+    width: 100%;
+    background: #E5E9ED;
+    border-radius: 12px;
+    height: 6px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .current {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      z-index: 2;
+      top: 50%;
+      cursor: pointer;
+      user-select: none;
+      left: 50%;
+      transform: translate(-50%, -50%);      
+      border: 3px solid #FF7038;
+      box-shadow: 4px 4px 24px rgba(255, 112, 56, 0.1);
+    }
+
+    .fill-current {
+      border-radius: 12px;
+      height: 6px;
+      background-color: #FF7038;
+      position: absolute;
+      top: 50%;      
+      transform: translateY(-50%);
+    }
+
+    .point {      
+      font-family: Lato;
+      font-size: 14px;      
+      color: #607990;
+      transform: translateY(16px);
+    }
+  }
 }
