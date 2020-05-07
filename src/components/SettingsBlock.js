@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SettingsIcon } from './icons';
+import { SettingsIcon, FilterIcon } from './icons';
 import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
 import { connect } from 'react-redux';
 import { setAppState } from '../actions/app';
@@ -16,11 +16,11 @@ const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
     dispatch(setAppState('filterColumns', list));
   };
   return (
-    <div className=" position-relative">
+    <div className="position-relative d-flex">
       <div
-        className={`button-with-dropdown ${showBlock ? 'active-button' : ''}`}
+        className={`button-with-dropdown mr-2 ${showBlock ? 'active-button' : ''}`}
         onClick={onChangeShowBlock}
-      >
+      >        
         <SettingsIcon fill={`${showBlock ? '#ffffff' : '#607990'}`} />
       </div>
       {
@@ -53,6 +53,9 @@ const SettingsBlock = ({ dispatch, filterColumns, columnsProducts }) => {
             </div>
         : null
       }
+      <div className="button-with-dropdown">
+        <FilterIcon fill="#607990" />
+      </div>
     </div>
   );
 };

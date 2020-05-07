@@ -13,7 +13,7 @@ const FilterBlock = ({ dispatch, filterColumns, columnsProducts }) => {
         className={`button-with-dropdown ${showBlock ? 'active-button' : ''}`}
         onClick={onChangeShowBlock}
       >
-        <FilterIcon fill={`${showBlock ? '#ffffff' : '#607990'}`} />
+        <FilterIcon fill={`${showBlock ? '#ffffff' : '#607990'}`} />        
       </div>
       {showBlock ? (
         // --DropDown Block --
