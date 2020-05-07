@@ -3,9 +3,11 @@ import './ToggleSwitch.scss';
 import cn from 'classnames';
 
 const ToggleSwitch = ({ value, onChange }) => {
+  
   const handleChange = ({ target: { checked } }) => {
     onChange(checked);
   };
+
   return (
     <>
       <input

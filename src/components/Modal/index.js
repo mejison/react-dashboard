@@ -12,7 +12,6 @@ const CustomModal = ({dispatch, show, content, title, className, resolver}) => {
 		resolver(data)
 	}
 	const clearModal = () => {
-		// console.log('exited')
 		// dispatch(toggleModal())
 	}
 	return (

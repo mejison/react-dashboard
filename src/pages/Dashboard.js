@@ -9,18 +9,25 @@ import Badge from '../components/Badge';
 import numeral from 'numeral';
 import Pagination from '../components/Pagination';
 import EmptyRules from '../components/EmptyRules';
+import ExistRules from '../components/ExistRules';
 import CardRule from '../components/CardRule';
 import SearchInput from './../components/SearchInput';
 import SettingsBlock from './../components/SettingsBlock';
 // import ToggleSwitch from './../components/ToggleSwitch/ToggleSwitch.js';
 import ButtonView from '../components/ButtonView';
-import { ChartViewIcon, TableViewIcon } from './../components/icons';
+import { ChartViewIcon, TableViewIcon, SettingsIcon } from './../components/icons';
 // import Switch from './../components/ToggleSwitch/Switch.js';
 // import RuningString from '../components/RuningString'
 import RuleList from '../components/RuleList';
 import { connect } from 'react-redux';
 import FilterBlock from '../components/FilterBlock';
 import { LineChart, Line, Legend, Tooltip, ResponsiveContainer, XAxis, YAxis } from 'recharts'
+import Button from '../components/buttons/BtnMain'
+import { toggleModal } from '../actions/ui'
+
+import DeleteRule from '../components/forms/DeleteRule'
+import Leave from '../components/forms/Leave'
+import WayToGo from '../components/forms/WayToGo'
 
 const cardRuleData = [
   {
@@ -132,7 +139,7 @@ const graphicData = [
   }
 ]
 
-const Dashboard = ({filterColumns}) => {
+const Dashboard = ({filterColumns, dispatch}) => {
   const [form, setForm] = useState({
     dateTransaction: '',
     transactionLimit: '',
@@ -223,12 +230,25 @@ const Dashboard = ({filterColumns}) => {
         return <Badge title={change} />;
     }
   };
+
+  const handleDeleteModal = () => {    
+    dispatch(toggleModal(true, 'Delete the rule #2?', <DeleteRule />, 'modal-sm'))
+  }
+
+  const handleLeaveModal = () => {    
+    dispatch(toggleModal(true, 'Do you want to leave?', <Leave />, 'modal-sm'))
+  }
+
+  const handleWayToGoModal = () => {
+    dispatch(toggleModal(true, '', <WayToGo />, 'modal-md'))
+  }
+
   return (
     <div className="h-100 container-fluid pt-3">
       <div className="row">
         <div className="col-12 col-sm-6 col-lg-9 mb-3">
-          <div className="d-flex justify-content-between mb-3">
-            <div>
+          <div className="d-flex justify-content-between mb-3">                                      
+            <div>              
               <h4 className="title-section">Attendance pricing Strategy</h4>
             </div>
             <div>
@@ -297,21 +317,68 @@ const Dashboard = ({filterColumns}) => {
                   </Card>
                 </div>
               : <div>
-                  <div className="mb-3">
-                    <Card>Chart view - Graphics</Card>
+                <div className="mb-3">
+                    <Card>
+                      <div className="graph-head">
+                        <h3>Heatmap Graph</h3>
+                        <div>
+                          <div className="nav-lists-graph">
+                            <div>
+                              Current
+                              <div className="bell dark"></div>
+                            </div>
+                            <div>
+                              Optimised
+                              <div className="bell"></div>
+                            </div>
+                          </div>
+                          <div
+                            className={`button-with-dropdown mr-2`}                            
+                          >        
+                            <SettingsIcon fill="#607990" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="graph-wrapper">
+                        Chart view - Graphics
+                      </div>
+                    </Card>
                   </div>
+
                   <div className="mb-3">
                     <Card>
-                      <ResponsiveContainer width={'100%'} height={300}>
-                        <LineChart data={graphicData}>
-                          <Line type="monotone" dataKey="line1" stroke="#FF7038" isAnimationActive={false} dot={{ stroke: '#FF7038', fill: '#FF7038' }} />
-                          <Line type="monotone" dataKey="line2" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
-                          <Line type="monotone" dataKey="line3" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
-                          <YAxis axisLine={{strokeWidth: 1}} label="Demand" />
-                          <YAxis label="ATP" />
-                          <XAxis dataKey="name" />
-                        </LineChart>
-                      </ResponsiveContainer>
+                      <div className="graph-head">
+                        <h3>Graph 3</h3>
+                        <div>
+                          <div className="nav-lists-graph">
+                            <div>
+                              Current
+                              <div className="bell dark"></div>
+                            </div>
+                            <div>
+                              Optimised
+                              <div className="bell"></div>
+                            </div>
+                          </div>
+                          <div
+                            className={`button-with-dropdown mr-2`}                            
+                          >        
+                            <SettingsIcon fill="#607990" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="graph-wrapper">
+                        <ResponsiveContainer width={'100%'} height={300}>
+                          <LineChart data={graphicData}>
+                            <Line type="monotone" dataKey="line1" stroke="#FF7038" isAnimationActive={false} dot={{ stroke: '#FF7038', fill: '#FF7038' }} />
+                            <Line type="monotone" dataKey="line2" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
+                            <Line type="monotone" dataKey="line3" stroke="#0B3546" isAnimationActive={false} dot={{ stroke: '#0B3546', fill: '#0B3546' }} />
+                            <YAxis axisLine={{strokeWidth: 1}} label="Demand" />
+                            <YAxis label="ATP" />
+                            <XAxis dataKey="name" />
+                          </LineChart>
+                        </ResponsiveContainer>
+                      </div>
                     </Card>
                   </div>
                 </div>
@@ -319,10 +386,25 @@ const Dashboard = ({filterColumns}) => {
         </div>
         <div className="col-12 col-sm-6 col-lg-3 mb-3">
           <Card>
-            <RuleList />
+            {
+              show ? <RuleList /> : <ExistRules />
+            }                        
           </Card>
         </div>
       </div>
+
+      <div className="d-flex">
+        <div>
+          <Button title="delete modal" variant="standart" onClick={handleDeleteModal}></Button>
+        </div>
+        <div className="ml-3">
+          <Button title="leave modal" variant="standart" onClick={handleLeaveModal}></Button>
+        </div>
+        <div className="ml-3">
+          <Button title="way to go modal" variant="standart" onClick={handleWayToGoModal}></Button>
+        </div>                
+      </div>
+
     </div>
   );
 };

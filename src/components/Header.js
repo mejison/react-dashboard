@@ -15,7 +15,6 @@ const Header = ({ path }) => {
   //   {
   //     title: "Edit profile",
   //     onClick: () => {
-  //       console.log("click");
   //     },
   //   },
   //   {

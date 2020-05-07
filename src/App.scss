@@ -990,3 +990,149 @@ body {
     }
   }
 }
+
+.exist-rule-item {
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-family: Lato;  
+    font-weight: 600;
+    font-size: 16px;    
+    align-items: center;
+    text-transform: capitalize;
+    color: #072C3B;
+  }
+
+  .point-of-sale {
+    font-family: Lato;    
+    font-size: 14px;
+    line-height: 18px;    
+    align-items: center;
+    text-transform: capitalize;
+    color: #607990;
+    margin: 15px 0;
+  }
+
+  .points-selcted {
+    background: #FFFFFF;
+    border: 1px solid #BECDDB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 1px 11px;
+    margin: 0 5px;
+  }
+
+  .period {
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 18px;    
+    align-items: center;
+    text-transform: capitalize;
+    color: #607990;
+  }
+}
+
+.footer-card {
+  border-top: 1px solid #D6DCE3;
+  padding: 10px 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  
+  .exist-rule-action {
+    cursor: pointer;    
+  }
+}
+
+.react-switch-checkbox {
+  display: none;
+}
+
+.card-rule-exist {
+  border: 1px solid #D6DCE3;
+  border-radius: 4px;
+  padding: 0;
+}
+
+button.btn-dashed {
+  border: 1.4px dashed #607990;
+  padding: 8px 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+  &:hover {
+    background-color: #fff !important;
+    color: rgba(25, 44, 67, 0.8) !important;
+  }
+}
+
+.graph-head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EAF1F9;
+  padding: 1rem;
+
+  h3 {
+    margin: 0;
+    align-self: center;
+    font-family: Lato;    
+    font-weight: 600;
+    font-size: 20px; 
+    align-items: center;
+    text-transform: capitalize;
+    color: #072C3B;
+  }
+
+  .nav-lists-graph, & > div {
+    display: flex;
+    color: #607990;
+  }
+
+  .nav-lists-graph {
+
+    & > div {
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+    }
+  }
+
+  .bell {
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #FF7038;
+
+    &.dark {
+      background-color: #072C3B;
+    }
+  }
+}
+
+.graph-wrapper {
+  padding: 1rem;
+}
+
+.way-to-go-title {  
+  font-family: "Nunito Sans", sans-serif;  
+  margin: 15px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;    
+  color: #072C3B;
+}
+
+.no-image {
+  background-color: #F8FBFE;
+  border-radius: 6px;
+  height: 153px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+}

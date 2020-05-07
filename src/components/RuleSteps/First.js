@@ -5,11 +5,9 @@ import DatePicker from '../inputs/DatePicker'
 
 const First = () => {
 	const [dates, setDate] = useState({start: new Date(), end: new Date()})
-	const handleChangeDate = key => date => {
-    console.log(key, date)
+	const handleChangeDate = key => date => {    
 		setDate({...dates, [key]: date})
 	}
-  console.log(dates)
   return (
     <div className="container-fluid">
 			<div className="row justify-content-center">

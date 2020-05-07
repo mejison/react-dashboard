@@ -7,11 +7,10 @@ import RuleTitle from '../forms/RuleTitle'
 import './rule_list.scss'
 import { history } from '../../store'
 
-const RuleList = ({dispatch, rules}) => {
-	console.log(rules)
+const RuleList = ({dispatch, rules}) => {	
 	const handleAddRule = () => {
 		dispatch(toggleModal(true, 'Create strategy', <RuleTitle />, 'modal-sm')).then(({success}) => {
-			if (success) {
+			if (success) {				
 				history.push('/rule/create')
 			}
 		})
